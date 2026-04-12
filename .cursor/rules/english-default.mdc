@@ -1,0 +1,10 @@
+---
+description: UI copy and user-facing content default to US English
+alwaysApply: true
+---
+
+# English by default
+
+- All user-visible strings in this app (labels, headings, descriptions, `metadata`, data summaries, footer text) must be **English (US)** unless the user explicitly requests another language.
+- Keep `lang="en"` on the document root when using a single locale.
+- Code comments may be English; avoid mixing Turkish or other locales in the UI layer.

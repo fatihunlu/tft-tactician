@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/* Muted Riot red (~#d13639) background stack */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --riot-red: #d13639;
+  --bg-riot-deep: #0c0607;
+  --bg-riot-mid: #160a0c;
+  --bg-riot-top: #221014;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--bg-riot-deep);
+    --foreground: #f4f0f0;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* App uses .dark; background is desaturated Riot red */
+.dark body {
+  --background: var(--bg-riot-deep);
+  --foreground: #f4f0f0;
+  background-color: var(--bg-riot-deep);
+  background-image: linear-gradient(
+    165deg,
+    var(--bg-riot-top) 0%,
+    var(--bg-riot-mid) 42%,
+    var(--bg-riot-deep) 72%,
+    #070304 100%
+  );
+  background-attachment: fixed;
+}
