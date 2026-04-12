@@ -4,8 +4,8 @@ Feature and UX work for the comp guide (not devops/tooling). Check items off as 
 
 ## Discovery & browsing
 
-- [ ] **Search** — filter comps by name, slug, or trait text on the home page.
-- [ ] **Sort** — order by tier, difficulty, name, or last updated (needs stable `lastUpdated` discipline).
+- [x] **Search** — filter comps by name, slug, or trait text on the home page.
+- [x] **Sort** — order by tier, difficulty, name, or last updated (needs stable `lastUpdated` discipline).
 - [ ] **Trait filter** — multi-select or chips for common traits (e.g. Dark Star, N.O.V.A.).
 
 ## Comp detail & trust

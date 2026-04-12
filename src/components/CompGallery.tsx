@@ -2,7 +2,13 @@
 
 import { useMemo, useState } from "react";
 import type { Comp, CompTier, Difficulty, Playstyle } from "@/types/comp";
-import { filterComps, type CompFilters } from "@/lib/comps";
+import {
+  filterComps,
+  filterCompsBySearch,
+  sortComps,
+  type CompFilters,
+  type CompSortKey,
+} from "@/lib/comps";
 import { CompCard } from "./CompCard";
 
 const playstyleOptions: { value: Playstyle | "all"; label: string }[] = [
@@ -25,6 +31,13 @@ const tierOptions: { value: CompTier | "all"; label: string }[] = [
   { value: "S", label: "S" },
   { value: "A", label: "A" },
   { value: "B", label: "B" },
+];
+
+const sortOptions: { value: CompSortKey; label: string }[] = [
+  { value: "tier", label: "Tier (S → A → B)" },
+  { value: "difficulty", label: "Difficulty (easy → hard)" },
+  { value: "name", label: "Name (A–Z)" },
+  { value: "lastUpdated", label: "Last updated (newest)" },
 ];
 
 function Select({
@@ -62,18 +75,37 @@ function Select({
 }
 
 export function CompGallery({ comps }: { comps: Comp[] }) {
+  const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState<CompSortKey>("tier");
   const [tier, setTier] = useState<CompTier | "all">("all");
   const [difficulty, setDifficulty] = useState<Difficulty | "all">("all");
   const [playstyle, setPlaystyle] = useState<Playstyle | "all">("all");
 
   const filtered = useMemo(() => {
+    const bySearch = filterCompsBySearch(comps, search);
     const f: CompFilters = { tier, difficulty, playstyle };
-    return filterComps(comps, f);
-  }, [comps, tier, difficulty, playstyle]);
+    return filterComps(bySearch, f);
+  }, [comps, search, tier, difficulty, playstyle]);
+
+  const displayed = useMemo(() => sortComps(filtered, sortBy), [filtered, sortBy]);
 
   return (
     <div>
-      <div className="mb-8 grid gap-4 sm:grid-cols-3">
+      <div className="mb-6">
+        <label htmlFor="comp-search" className="mb-1 block text-xs font-medium text-red-200/55">
+          Search
+        </label>
+        <input
+          id="comp-search"
+          type="search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Name, slug, or trait…"
+          autoComplete="off"
+          className="w-full rounded-lg border border-white/10 bg-red-950/50 px-3 py-2 text-sm text-red-50 placeholder:text-red-200/35 outline-none focus:border-red-400/45"
+        />
+      </div>
+      <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Select
           id="filter-tier"
           label="Tier"
@@ -95,12 +127,19 @@ export function CompGallery({ comps }: { comps: Comp[] }) {
           onChange={(v) => setPlaystyle(v as Playstyle | "all")}
           options={playstyleOptions}
         />
+        <Select
+          id="sort-by"
+          label="Sort"
+          value={sortBy}
+          onChange={(v) => setSortBy(v as CompSortKey)}
+          options={sortOptions}
+        />
       </div>
       {filtered.length === 0 ? (
         <p className="text-center text-red-100/60">No comps match these filters.</p>
       ) : (
         <ul className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-          {filtered.map((c) => (
+          {displayed.map((c) => (
             <li key={c.slug}>
               <CompCard comp={c} />
             </li>
