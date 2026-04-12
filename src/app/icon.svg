@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="TFT Tactician TT">
+  <defs>
+    <!-- Reads as Riot-style red even at 16×16 favicon size (not pure black) -->
+    <linearGradient id="tt-bg" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#c73e45"/>
+      <stop offset="38%" stop-color="#7a222c"/>
+      <stop offset="100%" stop-color="#2c0e12"/>
+    </linearGradient>
+    <linearGradient id="tt-shine" x1="50%" y1="0%" x2="50%" y2="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="url(#tt-bg)"/>
+  <rect width="32" height="32" rx="8" fill="url(#tt-shine)"/>
+  <rect x="1.5" y="1.5" width="29" height="29" rx="6.5" fill="none" stroke="#d13639" stroke-opacity="0.9" stroke-width="1.25"/>
+  <!-- TT monogram -->
+  <g fill="#faf7f7">
+    <rect x="3" y="6" width="11" height="3.5" rx="1"/>
+    <rect x="6.25" y="6" width="4.5" height="20" rx="1"/>
+    <rect x="18" y="6" width="11" height="3.5" rx="1"/>
+    <rect x="21.25" y="6" width="4.5" height="20" rx="1"/>
+  </g>
+</svg>

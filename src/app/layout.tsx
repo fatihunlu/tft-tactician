@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -36,8 +37,19 @@ export default function RootLayout({
         <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(ellipse_110%_70%_at_50%_-15%,rgba(209,54,57,0.14),transparent_55%)]" />
         <header className="border-b border-white/10 bg-[#120709]/85 backdrop-blur-md">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-            <Link href="/" className="text-lg font-semibold tracking-tight text-white">
-              TFT Tactician
+            <Link
+              href="/"
+              className="flex items-center gap-2.5 text-lg font-semibold tracking-tight text-white transition-opacity hover:opacity-90"
+            >
+              <Image
+                src="/icon.svg"
+                alt=""
+                width={32}
+                height={32}
+                className="size-8 shrink-0 rounded-lg shadow-sm shadow-black/30"
+                priority
+              />
+              <span>TFT Tactician</span>
             </Link>
             <span className="text-xs text-red-200/55">Set 17</span>
           </div>
