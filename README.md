@@ -4,6 +4,8 @@ A small **fan-made** web app for **Teamfight Tactics Set 17 (Space Gods)**. It l
 
 **This project is not affiliated with Riot Games.** Champion names, traits, and art belong to Riot; we’re just organizing public information for practice and fun.
 
+**Live demo:** [tft-tactician-ruddy.vercel.app](https://tft-tactician-ruddy.vercel.app/)
+
 ![](docs/tft-tactician-demo.gif)
 
 ## Assets
