@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Comp } from "@/types/comp";
+import { DifficultyBadge } from "./DifficultyBadge";
 
 const tierRing: Record<string, string> = {
   S: "ring-2 ring-amber-400/80 shadow-[0_0_36px_rgba(251,191,36,0.28),0_0_1px_rgba(254,243,199,0.4)]",
@@ -29,21 +30,6 @@ function TierBadge({ tier }: { tier: Comp["tier"] }) {
   );
 }
 
-const difficultyLabel: Record<Comp["difficulty"], string> = {
-  easy: "Easy",
-  medium: "Medium",
-  hard: "Hard",
-};
-
-const difficultyBadgeClass: Record<Comp["difficulty"], string> = {
-  easy:
-    "border-amber-300/70 bg-gradient-to-b from-amber-500/25 to-amber-800/20 text-amber-50 shadow-[inset_0_1px_0_rgba(253,230,138,0.35)]",
-  medium:
-    "border-emerald-300/70 bg-gradient-to-b from-emerald-500/25 to-emerald-800/20 text-emerald-50 shadow-[inset_0_1px_0_rgba(110,231,183,0.35)]",
-  hard:
-    "border-amber-300/70 bg-gradient-to-b from-amber-500/25 to-amber-800/20 text-amber-50 shadow-[inset_0_1px_0_rgba(253,230,138,0.35)]",
-};
-
 const playstyleLabel: Record<Comp["playstyle"], string> = {
   slow_roll: "Slow roll",
   fast_8: "Fast 8",
@@ -70,24 +56,20 @@ export function CompCard({ comp }: { comp: Comp }) {
         </div>
         <TierBadge tier={comp.tier} />
       </div>
-      <dl className="mt-4 grid grid-cols-2 gap-2 text-xs text-red-100/55">
-        <div className="text-[0.6rem] leading-snug">
-          <dt className="text-red-200/45">Difficulty</dt>
-          <dd className="font-medium">
-            <span
-              className={`inline-flex min-w-[4.8rem] items-center justify-center rounded-full border px-[0.6rem] py-[0.1rem] tracking-wide ${difficultyBadgeClass[comp.difficulty]}`}
-            >
-              {difficultyLabel[comp.difficulty]}
-            </span>
+      <dl className="mt-4 grid grid-cols-2 gap-x-3 gap-y-3 text-xs text-red-100/55">
+        <div className="flex min-w-0 flex-col gap-1.5">
+          <dt className="text-[0.65rem] leading-normal text-red-200/45">Difficulty</dt>
+          <dd className="leading-normal">
+            <DifficultyBadge difficulty={comp.difficulty} size="sm" />
           </dd>
         </div>
-        <div>
-          <dt className="text-red-200/45">Plan</dt>
-          <dd className="font-medium text-red-50">{playstyleLabel[comp.playstyle]}</dd>
+        <div className="flex min-w-0 flex-col gap-1.5">
+          <dt className="text-[0.65rem] leading-normal text-red-200/45">Plan</dt>
+          <dd className="font-medium leading-snug text-red-50">{playstyleLabel[comp.playstyle]}</dd>
         </div>
-        <div className="col-span-2">
-          <dt className="text-red-200/45">Patch</dt>
-          <dd className="font-medium text-red-50">{comp.patch}</dd>
+        <div className="col-span-2 flex flex-col gap-1.5">
+          <dt className="text-[0.65rem] leading-normal text-red-200/45">Patch</dt>
+          <dd className="font-medium leading-snug text-red-50">{comp.patch}</dd>
         </div>
       </dl>
       <div className="mt-3 flex flex-wrap gap-1.5">

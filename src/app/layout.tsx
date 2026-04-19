@@ -39,17 +39,19 @@ export default function RootLayout({
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
             <Link
               href="/"
-              className="flex items-center gap-2.5 text-lg font-semibold tracking-tight text-white transition-opacity hover:opacity-90"
+              className="group/logo flex items-center gap-2.5 text-lg font-semibold tracking-tight transition-opacity hover:opacity-90"
             >
               <Image
                 src="/icon.svg"
                 alt=""
                 width={32}
                 height={32}
-                className="size-8 shrink-0 rounded-lg shadow-sm shadow-black/30"
+                className="size-8 shrink-0 rounded-lg ring-1 ring-white/10 transition ring-offset-2 ring-offset-[#120709] group-hover/logo:ring-white/18"
                 priority
               />
-              <span>TFT Tactician</span>
+              <span className="text-white">
+                <span className="text-red-200/95">TFT</span> Tactician
+              </span>
             </Link>
             <span className="text-xs text-red-200/55">Set 17</span>
           </div>

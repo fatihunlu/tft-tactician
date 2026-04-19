@@ -50,3 +50,4 @@ next-env.d.ts
 
 # Item icon fetch helper (local only; ship `public/items/` assets in repo)
 /scripts/download-item-icons.mjs
+/scripts/fetch-blitz-item-icons.mjs

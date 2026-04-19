@@ -5,6 +5,11 @@ import {
   type ItemIconRef,
 } from "@/data/generated/itemIconMap";
 
+/** Fimbulwinter: LoL-only icon; shipped as PNG from Data Dragon (see itemIconDownload.json). */
+const ITEM_ICON_EXT: Record<string, "png" | "webp"> = {
+  fimbulwinter: "png",
+};
+
 export function itemIconLookupKey(itemName: string): string {
   return itemName.trim().toLowerCase();
 }
@@ -14,7 +19,8 @@ export function itemIconRef(itemName: string): ItemIconRef | undefined {
 }
 
 /**
- * Static path under public/items/{ACTIVE_TFT_PATCH}/ (node scripts/download-item-icons.mjs).
+ * Static path under public/items/{ACTIVE_TFT_PATCH}/
+ * (Blitz webp via local fetch script; Fimbulwinter PNG from Data Dragon).
  */
 export function itemIconSrc(itemName: string): string | null {
   const key = itemIconLookupKey(itemName);
@@ -22,5 +28,6 @@ export function itemIconSrc(itemName: string): string | null {
   const slug = ITEM_ICON_SLUG[key];
   if (!slug) return null;
   const seg = encodeURIComponent(ACTIVE_TFT_PATCH);
-  return `/items/${seg}/${slug}.png`;
+  const ext = ITEM_ICON_EXT[slug] ?? "webp";
+  return `/items/${seg}/${slug}.${ext}`;
 }

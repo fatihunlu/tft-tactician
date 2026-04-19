@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { DifficultyBadge } from "@/components/DifficultyBadge";
 import { MetaBoardPreview } from "@/components/MetaBoardPreview";
 import { getCompBySlug, getCompSlugs } from "@/lib/comps";
 import type { Comp } from "@/types/comp";
@@ -10,12 +11,6 @@ const playstyleLabel: Record<Comp["playstyle"], string> = {
   fast_8: "Fast 8",
   fast_9: "Fast 9",
   standard: "Standard tempo",
-};
-
-const difficultyLabel: Record<Comp["difficulty"], string> = {
-  easy: "Easy",
-  medium: "Medium",
-  hard: "Hard",
 };
 
 type Props = { params: Promise<{ slug: string }> };
@@ -69,23 +64,25 @@ export default async function CompDetailPage({ params }: Props) {
             </span>
           )}
         </div>
-        <dl className="mt-6 grid gap-3 text-sm sm:grid-cols-2">
-          <div>
-            <dt className="text-red-200/45">Game plan</dt>
-            <dd className="font-medium text-red-50">{playstyleLabel[comp.playstyle]}</dd>
-            <dd className="text-red-100/65">{comp.rollInfo}</dd>
+        <dl className="mt-6 grid gap-x-4 gap-y-4 text-sm sm:grid-cols-2">
+          <div className="flex flex-col gap-1.5">
+            <dt className="text-xs leading-normal text-red-200/45">Game plan</dt>
+            <dd className="font-medium leading-snug text-red-50">{playstyleLabel[comp.playstyle]}</dd>
+            <dd className="leading-relaxed text-red-100/65">{comp.rollInfo}</dd>
           </div>
-          <div>
-            <dt className="text-red-200/45">Difficulty</dt>
-            <dd className="font-medium text-red-50">{difficultyLabel[comp.difficulty]}</dd>
+          <div className="flex flex-col gap-1.5">
+            <dt className="text-xs leading-normal text-red-200/45">Difficulty</dt>
+            <dd className="leading-normal">
+              <DifficultyBadge difficulty={comp.difficulty} size="md" />
+            </dd>
           </div>
-          <div>
-            <dt className="text-red-200/45">Patch</dt>
-            <dd className="font-medium text-red-50">{comp.patch}</dd>
+          <div className="flex flex-col gap-1.5">
+            <dt className="text-xs leading-normal text-red-200/45">Patch</dt>
+            <dd className="font-medium leading-snug text-red-50">{comp.patch}</dd>
           </div>
-          <div>
-            <dt className="text-red-200/45">Content updated</dt>
-            <dd className="font-medium text-red-50">{comp.lastUpdated}</dd>
+          <div className="flex flex-col gap-1.5">
+            <dt className="text-xs leading-normal text-red-200/45">Content updated</dt>
+            <dd className="font-medium leading-snug text-red-50">{comp.lastUpdated}</dd>
           </div>
         </dl>
         {comp.godHint ? (

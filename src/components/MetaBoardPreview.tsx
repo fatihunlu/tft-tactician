@@ -232,7 +232,7 @@ export function MetaBoardPreview({ units }: { units: CompUnit[] }) {
               </div>
               <div className="flex items-center gap-1">
                 {u.items.slice(0, 2).map((item) => (
-                  <ItemIcon key={`${u.champion}-${item}`} name={item} size={20} />
+                  <ItemIcon key={`${u.champion}-${item}`} name={item} size={24} />
                 ))}
               </div>
             </li>

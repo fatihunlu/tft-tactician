@@ -44,7 +44,7 @@ export const ITEM_ICON_MAP: Record<string, ItemIconRef> = {
 };
 
 /**
- * Basename (no .png) under public/items/{ACTIVE_TFT_PATCH}/ after node scripts/download-item-icons.mjs.
+ * Basename (no extension) under public/items/{ACTIVE_TFT_PATCH}/ — .webp from Blitz, Fimbulwinter .png (see itemArt.ts).
  * Keys match ITEM_ICON_MAP (ACTIVE_TFT_PATCH in activeTftPatch.ts).
  */
 export const ITEM_ICON_SLUG: Record<string, string> = {

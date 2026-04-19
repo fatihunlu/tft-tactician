@@ -2,7 +2,7 @@
  * Fetches Data Dragon tft-item.json + item.json and writes
  * activeTftPatch.ts, itemIconMap.ts, itemIconDownload.json (active patch drives champion + item folders).
  *
- * Then pull PNGs into public/items/{tftPatch}/: node scripts/download-item-icons.mjs
+ * Then pull icons into public/items/{tftPatch}/: local scripts/fetch-blitz-item-icons.mjs (gitignored) or download-item-icons.mjs
  * tftPatch = highest patch: "..." in comps.ts (active asset folder).
  */
 import fs from "fs";
@@ -160,7 +160,7 @@ ${entries.join("\n")}
 };
 
 /**
- * Basename (no .png) under public/items/{ACTIVE_TFT_PATCH}/ after node scripts/download-item-icons.mjs.
+ * Basename (no extension) under public/items/{ACTIVE_TFT_PATCH}/ — .webp from Blitz, Fimbulwinter .png (see itemArt.ts).
  * Keys match ITEM_ICON_MAP (ACTIVE_TFT_PATCH in activeTftPatch.ts).
  */
 export const ITEM_ICON_SLUG: Record<string, string> = {

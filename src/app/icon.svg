@@ -1,21 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="TFT Tactician TT">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="TFT Tactician">
   <defs>
-    <!-- Reads as Riot-style red even at 16×16 favicon size (not pure black) -->
-    <linearGradient id="tt-bg" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stop-color="#c73e45"/>
-      <stop offset="38%" stop-color="#7a222c"/>
-      <stop offset="100%" stop-color="#2c0e12"/>
+    <linearGradient id="logo-bg" x1="16" y1="0" x2="16" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a1014"/>
+      <stop offset="1" stop-color="#0c0607"/>
     </linearGradient>
-    <linearGradient id="tt-shine" x1="50%" y1="0%" x2="50%" y2="55%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    <linearGradient id="logo-sheen" x1="16" y1="0" x2="16" y2="16" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="logo-accent" x1="5" y1="29" x2="27" y2="29" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d13639" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#d13639" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#d13639" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <rect width="32" height="32" rx="8" fill="url(#tt-bg)"/>
-  <rect width="32" height="32" rx="8" fill="url(#tt-shine)"/>
-  <rect x="1.5" y="1.5" width="29" height="29" rx="6.5" fill="none" stroke="#d13639" stroke-opacity="0.9" stroke-width="1.25"/>
-  <!-- TT monogram -->
-  <g fill="#faf7f7">
+  <rect width="32" height="32" rx="8" fill="url(#logo-bg)"/>
+  <rect width="32" height="32" rx="8" fill="url(#logo-sheen)"/>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" fill="none" stroke="#ffffff" stroke-opacity="0.1"/>
+  <path d="M5 29h22" stroke="url(#logo-accent)" stroke-width="1.25" stroke-linecap="round"/>
+  <!-- TT monogram — matches site foreground -->
+  <g fill="#f4f0f0">
     <rect x="3" y="6" width="11" height="3.5" rx="1"/>
     <rect x="6.25" y="6" width="4.5" height="20" rx="1"/>
     <rect x="18" y="6" width="11" height="3.5" rx="1"/>
