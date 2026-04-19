@@ -1,0 +1,133 @@
+{
+  "ddragonVersion": "16.8.1",
+  "tftPatch": "17.1",
+  "tftPatchesSeen": [
+    "17.1"
+  ],
+  "files": [
+    {
+      "slug": "archangels-staff",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_ArchangelsStaff.png"
+    },
+    {
+      "slug": "bloodthirster",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_Bloodthirster.png"
+    },
+    {
+      "slug": "blue-buff",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_BlueBuff.png"
+    },
+    {
+      "slug": "bramble-vest",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_BrambleVest.png"
+    },
+    {
+      "slug": "dragons-claw",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_DragonsClaw.png"
+    },
+    {
+      "slug": "edge-of-night",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_GuardianAngel.png"
+    },
+    {
+      "slug": "fimbulwinter",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/item/3121.png"
+    },
+    {
+      "slug": "giant-slayer",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_MadredsBloodrazor.png"
+    },
+    {
+      "slug": "guardbreaker",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT9_Item_OrnnHullbreaker.png"
+    },
+    {
+      "slug": "guinsoos-rageblade",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_GuinsoosRageblade.png"
+    },
+    {
+      "slug": "hand-of-justice",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_UnstableConcoction.png"
+    },
+    {
+      "slug": "hextech-gunblade",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_HextechGunblade.png"
+    },
+    {
+      "slug": "infinity-edge",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_InfinityEdge.png"
+    },
+    {
+      "slug": "jeweled-gauntlet",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_JeweledGauntlet.png"
+    },
+    {
+      "slug": "krakens-fury",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_RunaansHurricane.png"
+    },
+    {
+      "slug": "last-whisper",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_LastWhisper.png"
+    },
+    {
+      "slug": "morellonomicon",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_Morellonomicon.png"
+    },
+    {
+      "slug": "nashors-tooth",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_Leviathan.png"
+    },
+    {
+      "slug": "quicksilver",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_Quicksilver.png"
+    },
+    {
+      "slug": "rabadons-deathcap",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_RabadonsDeathcap.png"
+    },
+    {
+      "slug": "red-buff",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_RapidFireCannon.png"
+    },
+    {
+      "slug": "spear-of-shojin",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_SpearOfShojin.png"
+    },
+    {
+      "slug": "spirit-visage",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/item/3065.png"
+    },
+    {
+      "slug": "statikk-shiv",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_Artifact_StatikkShiv.png"
+    },
+    {
+      "slug": "steadfast-heart",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_NightHarvester.png"
+    },
+    {
+      "slug": "steraks-gage",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_SteraksGage.png"
+    },
+    {
+      "slug": "sunfire-aegis",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/item/3068.png"
+    },
+    {
+      "slug": "thiefs-gloves",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_ThiefsGloves.png"
+    },
+    {
+      "slug": "titans-resolve",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_TitansResolve.png"
+    },
+    {
+      "slug": "void-staff",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/item/3135.png"
+    },
+    {
+      "slug": "warmogs-armor",
+      "url": "https://ddragon.leagueoflegends.com/cdn/16.8.1/img/tft-item/TFT_Item_WarmogsArmor.png"
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+/**
+ * Fetches Data Dragon tft-item.json + item.json and writes
+ * activeTftPatch.ts, itemIconMap.ts, itemIconDownload.json (active patch drives champion + item folders).
+ *
+ * Then pull PNGs into public/items/{tftPatch}/: node scripts/download-item-icons.mjs
+ * tftPatch = highest patch: "..." in comps.ts (active asset folder).
+ */
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import {
+  comparePatch,
+  extractTftPatches,
+  maxTftPatch,
+  tftPatchToDirSegment,
+} from "./lib/tft-patch-from-comps.mjs";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.join(__dirname, "..");
+const COMPS_FILE = path.join(ROOT, "src", "data", "set17", "comps.ts");
+const OUT_FILE = path.join(ROOT, "src", "data", "generated", "itemIconMap.ts");
+const ACTIVE_PATCH_FILE = path.join(ROOT, "src", "data", "generated", "activeTftPatch.ts");
+const MANIFEST_FILE = path.join(ROOT, "src", "data", "generated", "itemIconDownload.json");
+
+const CDN_BASE = "https://ddragon.leagueoflegends.com/cdn";
+
+/** Safe basename under public/items/ (no extension) */
+function toPublicSlug(lookupKey) {
+  return lookupKey
+    .replace(/'/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function cdnUrlForRef(version, ref) {
+  if (ref.kind === "tft-item") {
+    return `${CDN_BASE}/${version}/img/tft-item/${ref.file}`;
+  }
+  return `${CDN_BASE}/${version}/img/item/${ref.id}.png`;
+}
+
+/** Lowercase display name -> icon ref (overrides auto-resolution) */
+const OVERRIDES = {
+  "sunfire aegis": { kind: "lol-item", id: "3068" },
+  fimbulwinter: { kind: "lol-item", id: "3121" },
+  guardbreaker: { kind: "tft-item", file: "TFT9_Item_OrnnHullbreaker.png" },
+  /** tft-item.json points at the wrong asset for these names */
+  "void staff": { kind: "lol-item", id: "3135" },
+  "spirit visage": { kind: "lol-item", id: "3065" },
+};
+
+function extractItemNames(source) {
+  const names = new Set();
+  const re = /items:\s*\[([^\]]*)\]/gs;
+  let m;
+  while ((m = re.exec(source)) !== null) {
+    const inner = m[1];
+    const q = /"([^"]+)"/g;
+    let qm;
+    while ((qm = q.exec(inner)) !== null) names.add(qm[1]);
+  }
+  return [...names].sort();
+}
+
+async function latestDdragonVersion() {
+  const res = await fetch("https://ddragon.leagueoflegends.com/api/versions.json");
+  if (!res.ok) throw new Error(`versions.json ${res.status}`);
+  const versions = await res.json();
+  return versions[0];
+}
+
+function main() {
+  return (async () => {
+    const version = await latestDdragonVersion();
+    const [tftRes, lolRes] = await Promise.all([
+      fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/tft-item.json`),
+      fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/item.json`),
+    ]);
+    if (!tftRes.ok) throw new Error(`tft-item.json ${tftRes.status}`);
+    if (!lolRes.ok) throw new Error(`item.json ${lolRes.status}`);
+    const tftData = await tftRes.json();
+    const lolData = await lolRes.json();
+
+    const tftByLower = new Map();
+    for (const v of Object.values(tftData.data)) {
+      tftByLower.set(String(v.name).toLowerCase(), v.image.full);
+    }
+
+    const lolByLower = new Map();
+    for (const [numericId, v] of Object.entries(lolData.data)) {
+      if (!/^\d+$/.test(numericId)) continue;
+      lolByLower.set(String(v.name).toLowerCase(), numericId);
+    }
+
+    const compsText = fs.readFileSync(COMPS_FILE, "utf8");
+    const tftPatches = extractTftPatches(compsText);
+    const tftPatchDir = tftPatchToDirSegment(maxTftPatch(tftPatches));
+    const unique = extractItemNames(compsText);
+
+    const entries = [];
+    const slugEntries = [];
+    const manifestFiles = [];
+    const unresolved = [];
+
+    for (const displayName of unique) {
+      const key = displayName.trim().toLowerCase();
+      let ref = OVERRIDES[key];
+      if (!ref) {
+        const tftFile = tftByLower.get(key);
+        if (tftFile) ref = { kind: "tft-item", file: tftFile };
+      }
+      if (!ref) {
+        const lolId = lolByLower.get(key);
+        if (lolId) ref = { kind: "lol-item", id: lolId };
+      }
+      if (!ref) {
+        unresolved.push(displayName);
+        continue;
+      }
+      const slug = toPublicSlug(key);
+      const serialized =
+        ref.kind === "tft-item"
+          ? `{ kind: "tft-item", file: ${JSON.stringify(ref.file)} }`
+          : `{ kind: "lol-item", id: ${JSON.stringify(ref.id)} }`;
+      entries.push(`  ${JSON.stringify(key)}: ${serialized},`);
+      slugEntries.push(`  ${JSON.stringify(key)}: ${JSON.stringify(slug)},`);
+      manifestFiles.push({
+        slug,
+        url: cdnUrlForRef(version, ref),
+      });
+    }
+
+    if (unresolved.length > 0) {
+      console.error("Unresolved item names (add OVERRIDES or fix comps):", unresolved);
+      process.exitCode = 1;
+    }
+
+    const activePatchBody = `/**
+ * Auto-generated by scripts/generate-item-icon-map.mjs — do not edit by hand.
+ * Run: npm run generate:item-icon-map
+ *
+ * Folder name under public/items/ and public/champions/ (highest patch: in comps.ts).
+ */
+export const ACTIVE_TFT_PATCH = ${JSON.stringify(tftPatchDir)} as const;
+`;
+
+    const body = `/**
+ * Auto-generated by scripts/generate-item-icon-map.mjs — do not edit by hand.
+ * Run: npm run generate:item-icon-map
+ */
+export const DDRAGON_VERSION = ${JSON.stringify(version)} as const;
+
+export type ItemIconRef =
+  | { kind: "tft-item"; file: string }
+  | { kind: "lol-item"; id: string };
+
+/** Lookup key: item display name, lowercased (trimmed). */
+export const ITEM_ICON_MAP: Record<string, ItemIconRef> = {
+${entries.join("\n")}
+};
+
+/**
+ * Basename (no .png) under public/items/{ACTIVE_TFT_PATCH}/ after node scripts/download-item-icons.mjs.
+ * Keys match ITEM_ICON_MAP (ACTIVE_TFT_PATCH in activeTftPatch.ts).
+ */
+export const ITEM_ICON_SLUG: Record<string, string> = {
+${slugEntries.join("\n")}
+};
+`;
+
+    const manifest = {
+      ddragonVersion: version,
+      tftPatch: tftPatchDir,
+      tftPatchesSeen: [...tftPatches].sort((a, b) => comparePatch(a, b)),
+      files: manifestFiles,
+    };
+
+    fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true });
+    fs.writeFileSync(ACTIVE_PATCH_FILE, activePatchBody, "utf8");
+    fs.writeFileSync(OUT_FILE, body, "utf8");
+    fs.writeFileSync(MANIFEST_FILE, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+    console.log("Wrote", ACTIVE_PATCH_FILE);
+    console.log("Wrote", OUT_FILE, "version", version, "tftPatch", tftPatchDir, "entries", entries.length);
+    console.log("Wrote", MANIFEST_FILE);
+  })();
+}
+
+main();

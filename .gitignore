@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# cursor
+.cursor/rules/
+
 # debug
 npm-debug.log*
 yarn-debug.log*
@@ -39,3 +42,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Champion portrait fetch helpers (local only; ship `public/champions/` assets in repo)
+/scripts/download-champion-icons.mjs
+/scripts/lib/blitz-tft17-id.mjs
+/scripts/verify-blitz-tft17-ids.mjs
+
+# Item icon fetch helper (local only; ship `public/items/` assets in repo)
+/scripts/download-item-icons.mjs

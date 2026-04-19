@@ -1,5 +1,6 @@
 import type { CompUnit } from "@/types/comp";
 import { ChampionAvatar } from "./ChampionAvatar";
+import { ItemIcon } from "./ItemIcon";
 
 const roleLabel: Record<NonNullable<CompUnit["role"]>, string> = {
   carry: "Carry",
@@ -33,7 +34,14 @@ export function UnitRow({ unit }: { unit: CompUnit }) {
           ) : null}
         </div>
         {unit.items.length > 0 ? (
-          <p className="mt-1 text-xs leading-snug text-red-100/65">{unit.items.join(" · ")}</p>
+          <div
+            className="mt-1 flex flex-wrap items-center gap-1"
+            aria-label={`Items: ${unit.items.join(", ")}`}
+          >
+            {unit.items.map((item) => (
+              <ItemIcon key={item} name={item} size={24} />
+            ))}
+          </div>
         ) : (
           <p className="mt-1 text-xs text-red-200/40">No core items (flex)</p>
         )}

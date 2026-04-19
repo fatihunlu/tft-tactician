@@ -1,6 +1,8 @@
+import { ACTIVE_TFT_PATCH } from "@/data/generated/activeTftPatch";
+
 /**
- * Local portraits live in /public/champions/{key}.png.
- * Run `npm run download:champion-icons` after adding champions to comps data.
+ * Local portraits live in /public/champions/{ACTIVE_TFT_PATCH}/{key}.webp
+ * (TFT Set 17 squares; optional local fetch scripts are gitignored — ship assets under `public/champions/`).
  */
 const OVERRIDES: Record<string, string | null> = {
   Rhaast: "Kayn",
@@ -9,6 +11,7 @@ const OVERRIDES: Record<string, string | null> = {
   LeBlanc: "Leblanc",
   "Bel'Veth": "Belveth",
   "Cho'Gath": "Chogath",
+  Kaisa: "KaiSa",
 };
 
 export function championIconKey(champion: string): string | null {
@@ -24,7 +27,8 @@ export function championIconKey(champion: string): string | null {
 export function championPortraitSrc(champion: string): string | null {
   const file = championIconKey(champion);
   if (!file) return null;
-  return `/champions/${file}.png`;
+  const seg = encodeURIComponent(ACTIVE_TFT_PATCH);
+  return `/champions/${seg}/${file}.webp`;
 }
 
 export function championInitials(champion: string): string {

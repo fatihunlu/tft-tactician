@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ChampionAvatar } from "@/components/ChampionAvatar";
-import { UnitRow } from "@/components/UnitRow";
+import { MetaBoardPreview } from "@/components/MetaBoardPreview";
 import { getCompBySlug, getCompSlugs } from "@/lib/comps";
 import type { Comp } from "@/types/comp";
 import type { Metadata } from "next";
@@ -56,9 +55,19 @@ export default async function CompDetailPage({ params }: Props) {
             <h1 className="mt-1 text-3xl font-bold tracking-tight text-white">{comp.name}</h1>
             <p className="mt-3 text-red-100/75">{comp.summary}</p>
           </div>
-          <span className="rounded-xl bg-amber-500/20 px-4 py-2 text-xl font-bold text-amber-100">
-            {comp.tier} tier
-          </span>
+          {comp.tier === "S" ? (
+            <span className="relative isolate shrink-0 overflow-hidden rounded-xl border border-amber-200/70 bg-gradient-to-br from-amber-200 via-amber-400 to-amber-600 px-5 py-2.5 text-xl font-extrabold tracking-tight text-amber-950 shadow-[0_0_28px_rgba(251,191,36,0.5),inset_0_1px_0_rgba(255,255,255,0.5)] ring-2 ring-amber-100/50 before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-tr before:from-white/35 before:via-transparent before:to-transparent before:opacity-60 after:pointer-events-none after:absolute after:-inset-1 after:rounded-xl after:bg-amber-400/20 after:blur-lg after:content-['']">
+              {comp.tier} tier
+            </span>
+          ) : comp.tier === "A" ? (
+            <span className="rounded-xl border border-emerald-400/45 bg-emerald-500/15 px-4 py-2 text-xl font-bold text-emerald-100 ring-1 ring-emerald-400/30">
+              {comp.tier} tier
+            </span>
+          ) : (
+            <span className="rounded-xl border border-red-400/35 bg-red-500/10 px-4 py-2 text-xl font-bold text-red-100/90 ring-1 ring-red-400/25">
+              {comp.tier} tier
+            </span>
+          )}
         </div>
         <dl className="mt-6 grid gap-3 text-sm sm:grid-cols-2">
           <div>
@@ -103,20 +112,7 @@ export default async function CompDetailPage({ params }: Props) {
 
       <section className="py-4">
         <h2 className="text-lg font-semibold text-white">Board preview</h2>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {comp.units.map((u, i) => (
-            <ChampionAvatar key={`${comp.slug}-av-${i}`} champion={u.champion} size={48} />
-          ))}
-        </div>
-      </section>
-
-      <section className="py-6">
-        <h2 className="text-lg font-semibold text-white">Units & items</h2>
-        <ul className="mt-4 flex flex-col gap-2">
-          {comp.units.map((u, i) => (
-            <UnitRow key={`${comp.slug}-row-${i}`} unit={u} />
-          ))}
-        </ul>
+        <MetaBoardPreview units={comp.units} />
       </section>
 
       <section className="py-6">

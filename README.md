@@ -36,3 +36,10 @@ If you feel like it:
 - **Say hi with a PR or an issue** — wrong item on a comp, a typo, a comp you swear by, or a half-baked feature idea; I read all of it 🔧  
 
 Either way, thanks for being here. See you on the ladder.
+
+
+## License
+
+Source code in this repository is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+Champion portraits and related assets from Riot’s Data Dragon are © Riot Games and are used under Riot’s public developer and fan-content policies. This project is not affiliated with or endorsed by Riot Games.

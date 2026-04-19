@@ -30,8 +30,13 @@ Feature and UX work for the comp guide (not devops/tooling). Check items off as 
 
 ## Media & polish
 
+- [ ] **Item images instead of names** — render TFT item icons (e.g. Data Dragon / Community Dragon) keyed off current item strings; keep accessible labels (`alt` / tooltips) so names remain discoverable.
 - [ ] **TFT-only units** — custom portraits for champions with no LoL Data Dragon square (e.g. Meepsie) via approved assets or Community Dragon paths.
 - [ ] **Share preview** — Open Graph title/description (and optional image) per comp detail URL.
+
+## Localization
+
+- [ ] **Internationalization (i18n)** — extract user-facing copy; add locale routing or a language toggle; translate UI, placeholders, and page `metadata` first, then decide how comp text (summaries, notes, trait labels) is stored per locale without drifting from patch data.
 
 ## Nice-to-have
 
