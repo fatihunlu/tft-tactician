@@ -3,15 +3,23 @@ import type { Comp } from "@/types/comp";
 export const SET17_COMPS: Comp[] = [
   {
     slug: "conduit-reroll",
-    name: "Conduit Reroll",
-    summary:
-      "Conduit-focused comp that slow-rolls at level 7 to three-star your carries.",
+    name: {
+      en: "Conduit Reroll",
+      tr: "Conduit Yeniden Açılım",
+    },
+    summary: {
+      en: "Conduit-focused comp that slow-rolls at level 7 to three-star your carries.",
+      tr: "Conduit merkezli kadro; seviye 7'de yavaş açılım yaparak taşıyıcı birimlerinizi üç yıldızlı hale getirir.",
+    },
     patch: "17.1",
     lastUpdated: "2026-04-19",
     tier: "A",
     difficulty: "medium",
     playstyle: "slow_roll",
-    rollInfo: "Slow roll at level 7.",
+    rollInfo: {
+      en: "Slow roll at level 7.",
+      tr: "Seviye 7'de yavaş açılım.",
+    },
     traits: [
       { name: "Conduit", count: 2 },
       { name: "N.O.V.A.", count: 2 },
@@ -29,23 +37,43 @@ export const SET17_COMPS: Comp[] = [
       { champion: "Bard", items: [], role: "support", cost: 5 },
     ],
     notes: [
-      "Choose your primary carry between Viktor and Miss Fortune based on items and Conduit tempo.",
-      "Frontline with Ornn and Maokai to buy space for your AP carry.",
-      "Gods that hand out economy or units (e.g. Ahri, Varus) smooth out the reroll loop.",
+      {
+        en: "Choose your primary carry between Viktor and Miss Fortune based on items and Conduit tempo.",
+        tr: "Eşyalara ve Conduit temposuna göre Viktor veya Miss Fortune'u ana taşıyıcı olarak seçin.",
+      },
+      {
+        en: "Frontline with Ornn and Maokai to buy space for your AP carry.",
+        tr: "AP taşıyıcınıza alan açmak için Ornn ve Maokai ile ön saf oluşturun.",
+      },
+      {
+        en: "Gods that hand out economy or units (e.g. Ahri, Varus) smooth out the reroll loop.",
+        tr: "Ekonomi veya birim sağlayan Tanrılar (ör. Ahri, Varus) yeniden açılım döngüsünü kolaylaştırır.",
+      },
     ],
-    godHint: "Economy or unit flow: Ahri, Varus",
+    godHint: {
+      en: "Economy or unit flow: Ahri, Varus",
+      tr: "Ekonomi veya birim akışı: Ahri, Varus",
+    },
   },
   {
     slug: "nova-yi",
-    name: "N.O.V.A. Master Yi",
-    summary:
-      "N.O.V.A. synergy with Master Yi as a carry; powers up through a fast level 8.",
+    name: {
+      en: "N.O.V.A. Master Yi",
+      tr: "N.O.V.A. Üstat Yi",
+    },
+    summary: {
+      en: "N.O.V.A. synergy with Master Yi as a carry; powers up through a fast level 8.",
+      tr: "Master Yi'yi taşıyıcı olarak kullanan N.O.V.A. sinerji kadrosu; hızlı seviye 8 ile güçlenir.",
+    },
     patch: "17.1",
     lastUpdated: "2026-04-19",
     tier: "A",
     difficulty: "medium",
     playstyle: "fast_8",
-    rollInfo: "Fast 8 — push XP to hit level 8 quickly.",
+    rollInfo: {
+      en: "Fast 8 — push XP to hit level 8 quickly.",
+      tr: "Hızlı 8 — seviye 8'e ulaşmak için XP'yi itin.",
+    },
     traits: [
       { name: "N.O.V.A.", count: 5 },
       { name: "Psionic", count: 2 },
@@ -62,23 +90,43 @@ export const SET17_COMPS: Comp[] = [
       { champion: "Master Yi", items: ["Hand of Justice", "Sterak's Gage", "Quicksilver"], role: "carry", cost: 4 },
     ],
     notes: [
-      "At 8, stabilize around your carries and slam items on Yi or Fiora depending on augments and pairs.",
-      "Plan board space and augments around hitting N.O.V.A. 5 and its selector reward.",
-      "Kayle or Soraka boons can shore up frontline and recovery.",
+      {
+        en: "At 8, stabilize around your carries and slam items on Yi or Fiora depending on augments and pairs.",
+        tr: "Seviye 8'de augment ve çiftlere göre Yi veya Fiora'ya eşya basın ve kadroyu dengeleyin.",
+      },
+      {
+        en: "Plan board space and augments around hitting N.O.V.A. 5 and its selector reward.",
+        tr: "N.O.V.A. 5'e ulaşmak ve seçici ödülü almak için tahta alanını ve augmentleri planlayın.",
+      },
+      {
+        en: "Kayle or Soraka boons can shore up frontline and recovery.",
+        tr: "Kayle veya Soraka büyükleri ön saf ve iyileşmeyi destekleyebilir.",
+      },
     ],
-    godHint: "Frontline / items: Kayle, Soraka",
+    godHint: {
+      en: "Frontline / items: Kayle, Soraka",
+      tr: "Ön saf / eşyalar: Kayle, Soraka",
+    },
   },
   {
     slug: "ap-vanguards",
-    name: "AP Vanguards",
-    summary:
-      "Karma and LeBlanc as AP carries with a durable vanguard frontline for long fights.",
+    name: {
+      en: "AP Vanguards",
+      tr: "AP Öncüler",
+    },
+    summary: {
+      en: "Karma and LeBlanc as AP carries with a durable vanguard frontline for long fights.",
+      tr: "Karma ve LeBlanc AP taşıyıcı olarak, uzun dövüşler için dayanıklı öncü ön safla.",
+    },
     patch: "17.1",
     lastUpdated: "2026-04-19",
     tier: "A",
     difficulty: "medium",
     playstyle: "slow_roll",
-    rollInfo: "Slow-roll variant at level 5; can pivot to 7–8 depending on shop.",
+    rollInfo: {
+      en: "Slow-roll variant at level 5; can pivot to 7–8 depending on shop.",
+      tr: "Seviye 5'te yavaş açılım varyantı; dükkana göre 7–8'e geçiş yapılabilir.",
+    },
     traits: [
       { name: "Dark Star", count: 4 },
       { name: "Ascendant", count: 2 },
@@ -94,23 +142,43 @@ export const SET17_COMPS: Comp[] = [
       { champion: "Nunu & Willump", items: ["Dragon's Claw", "Spirit Visage", "Steadfast Heart"], role: "tank", cost: 4 },
     ],
     notes: [
-      "Prioritize mana and AP items for Karma and LeBlanc.",
-      "Nunu and Illaoi anchor the front with CC and sustain.",
-      "Aurelion Sol task rewards can accelerate your tempo in this comp.",
+      {
+        en: "Prioritize mana and AP items for Karma and LeBlanc.",
+        tr: "Karma ve LeBlanc için mana ve AP eşyaları önceliklendirin.",
+      },
+      {
+        en: "Nunu and Illaoi anchor the front with CC and sustain.",
+        tr: "Nunu ve Illaoi CC ve süreklilik ile ön safı sabitler.",
+      },
+      {
+        en: "Aurelion Sol task rewards can accelerate your tempo in this comp.",
+        tr: "Aurelion Sol görev ödülleri bu kadroda temponuzu hızlandırabilir.",
+      },
     ],
-    godHint: "Tasks / scaling: Aurelion Sol",
+    godHint: {
+      en: "Tasks / scaling: Aurelion Sol",
+      tr: "Görevler / yükselme: Aurelion Sol",
+    },
   },
   {
     slug: "meeple",
-    name: "Meeple",
-    summary:
-      "Meepling-focused fast 8 with Bard as a potential five-cost carry.",
+    name: {
+      en: "Meeple",
+      tr: "Meeple",
+    },
+    summary: {
+      en: "Meepling-focused fast 8 with Bard as a potential five-cost carry.",
+      tr: "Meepling odaklı hızlı 8; Bard potansiyel bir beş altınlık taşıyıcı olarak.",
+    },
     patch: "17.1",
     lastUpdated: "2026-04-19",
     tier: "S",
     difficulty: "medium",
     playstyle: "fast_8",
-    rollInfo: "Fast 8.",
+    rollInfo: {
+      en: "Fast 8.",
+      tr: "Hızlı 8.",
+    },
     traits: [
       { name: "Meepling", count: 7 },
       { name: "Conduit", count: 2 },
@@ -127,23 +195,43 @@ export const SET17_COMPS: Comp[] = [
       { champion: "Bard", items: ["Jeweled Gauntlet", "Morellonomicon", "Nashor's Tooth"], role: "carry", cost: 5 },
     ],
     notes: [
-      "Bard is your five-cost anchor; itemization and positioning matter once you hit him at 8.",
-      "Track bench space and clone slots for Meepling breakpoints.",
-      "Varus shop and duplicator flow synergizes well with reroll-style Meepling boards.",
+      {
+        en: "Bard is your five-cost anchor; itemization and positioning matter once you hit him at 8.",
+        tr: "Bard beş altın çapanızdır; seviye 8'de ona ulaştığınızda eşyalandırma ve konumlandırma önemlidir.",
+      },
+      {
+        en: "Track bench space and clone slots for Meepling breakpoints.",
+        tr: "Meepling eşik noktaları için bant alanını ve klon slotlarını takip edin.",
+      },
+      {
+        en: "Varus shop and duplicator flow synergizes well with reroll-style Meepling boards.",
+        tr: "Varus dükkanı ve kopyalayıcı akışı, yeniden açılım tarzı Meepling tahtalarıyla iyi sinerji kurar.",
+      },
     ],
-    godHint: "Reroll / units: Varus",
+    godHint: {
+      en: "Reroll / units: Varus",
+      tr: "Yeniden açılım / birimler: Varus",
+    },
   },
   {
     slug: "jhin-cap",
-    name: "Jhin Cap",
-    summary:
-      "Jhin as primary carry with a high ceiling that scales into late game and level 9.",
+    name: {
+      en: "Jhin Cap",
+      tr: "Jhin Zirvesi",
+    },
+    summary: {
+      en: "Jhin as primary carry with a high ceiling that scales into late game and level 9.",
+      tr: "Jhin birincil taşıyıcı olarak; geç oyuna ve seviye 9'a ölçeklenen yüksek tavanıyla.",
+    },
     patch: "17.1",
     lastUpdated: "2026-04-19",
     tier: "B",
     difficulty: "hard",
     playstyle: "fast_9",
-    rollInfo: "Fast 9 — go 9 when your economy is strong enough.",
+    rollInfo: {
+      en: "Fast 9 — go 9 when your economy is strong enough.",
+      tr: "Hızlı 9 — ekonominiz yeterliyken 9'a çıkın.",
+    },
     traits: [
       { name: "Dark Star", count: 4 },
       { name: "Meepling", count: 3 },
@@ -160,23 +248,43 @@ export const SET17_COMPS: Comp[] = [
       { champion: "Bard", items: ["Jeweled Gauntlet", "Void Staff", "Guardbreaker"], role: "carry", cost: 5 },
     ],
     notes: [
-      "Balance AD and crit for Jhin; Dark Star spikes when enemies are below the health threshold.",
-      "Fast 9 needs enough economy to survive variance on five-cost hits.",
-      "Ahri XP and gold boons make leveling to 9 more realistic.",
+      {
+        en: "Balance AD and crit for Jhin; Dark Star spikes when enemies are below the health threshold.",
+        tr: "Jhin için AD ve kritik dengesini kurun; Karanlık Yıldız düşmanların HP eşiği altına indiğinde zirve yapar.",
+      },
+      {
+        en: "Fast 9 needs enough economy to survive variance on five-cost hits.",
+        tr: "Hızlı 9, beş altınlık vuruşlardaki varyansa hayatta kalmak için yeterli ekonomi gerektirir.",
+      },
+      {
+        en: "Ahri XP and gold boons make leveling to 9 more realistic.",
+        tr: "Ahri XP ve altın boonları 9'a levellemeyi daha gerçekçi kılar.",
+      },
     ],
-    godHint: "Economy / XP: Ahri",
+    godHint: {
+      en: "Economy / XP: Ahri",
+      tr: "Ekonomi / XP: Ahri",
+    },
   },
   {
     slug: "stargazers",
-    name: "Stargazers",
-    summary:
-      "Stargazer tempo comp: scout the constellation map and stabilize with reroll or fast 8.",
+    name: {
+      en: "Stargazers",
+      tr: "Yıldız Gözlemcileri",
+    },
+    summary: {
+      en: "Stargazer tempo comp: scout the constellation map and stabilize with reroll or fast 8.",
+      tr: "Yıldız Gözlemcisi tempo kadrosu: takımyıldızı haritasını izleyin ve yeniden açılım veya hızlı 8 ile stabilize edin.",
+    },
     patch: "17.1",
     lastUpdated: "2026-04-19",
     tier: "S",
     difficulty: "medium",
     playstyle: "fast_8",
-    rollInfo: "Fast 8 — hit breakpoints, then roll for key four-costs.",
+    rollInfo: {
+      en: "Fast 8 — hit breakpoints, then roll for key four-costs.",
+      tr: "Hızlı 8 — eşik noktaları vurun, ardından kilit dört altın birimler için açılım yapın.",
+    },
     traits: [
       { name: "Stargazer", count: 5 },
       { name: "Bastion", count: 2 },
@@ -192,23 +300,43 @@ export const SET17_COMPS: Comp[] = [
       { champion: "Nunu & Willump", items: ["Spirit Visage", "Steadfast Heart"], role: "tank", cost: 4 },
     ],
     notes: [
-      "Stargazer bonuses change by game — read your constellation before committing items.",
-      "Xayah and Nunu are common late anchors; flex early pairs based on opener.",
-      "Ahri or Varus help hit levels without bleeding out.",
+      {
+        en: "Stargazer bonuses change by game — read your constellation before committing items.",
+        tr: "Yıldız Gözlemcisi bonusları her oyunda değişir — eşya basmadan önce takımyıldızınızı okuyun.",
+      },
+      {
+        en: "Xayah and Nunu are common late anchors; flex early pairs based on opener.",
+        tr: "Xayah ve Nunu yaygın geç oyun çapalarıdır; açılış çiftlerine göre erken esnek oynayın.",
+      },
+      {
+        en: "Ahri or Varus help hit levels without bleeding out.",
+        tr: "Ahri veya Varus, ekonomi kanamadan seviye atlamanıza yardımcı olur.",
+      },
     ],
-    godHint: "Economy: Ahri, Varus",
+    godHint: {
+      en: "Economy: Ahri, Varus",
+      tr: "Ekonomi: Ahri, Varus",
+    },
   },
   {
     slug: "chronobreak-ez",
-    name: "Chronobreak Ezreal",
-    summary:
-      "Chronobreak reroll around Ezreal; free refreshes on losses and XP on wins at two.",
+    name: {
+      en: "Chronobreak Ezreal",
+      tr: "Kronoparça Ezreal",
+    },
+    summary: {
+      en: "Chronobreak reroll around Ezreal; free refreshes on losses and XP on wins at two.",
+      tr: "Ezreal etrafında Kronoparça yeniden açılımı; yenilgide ücretsiz yenileme ve galibiyette XP.",
+    },
     patch: "17.1",
     lastUpdated: "2026-04-19",
     tier: "A",
     difficulty: "easy",
     playstyle: "slow_roll",
-    rollInfo: "Slow roll at 6–7 depending on pairs; spike with Ezreal three-star.",
+    rollInfo: {
+      en: "Slow roll at 6–7 depending on pairs; spike with Ezreal three-star.",
+      tr: "Çiftlere göre seviye 6–7'de yavaş açılım; Ezreal üç yıldızıyla zirve.",
+    },
     traits: [
       { name: "Chronobreak", count: 4 },
       { name: "Marksman", count: 2 },
@@ -224,24 +352,47 @@ export const SET17_COMPS: Comp[] = [
       { champion: "Illaoi", items: ["Spirit Visage", "Warmog's Armor"], role: "tank", cost: 3 },
     ],
     notes: [
-      "The Chronobreak (Timebreaker) trait only has four champions — fill the board with brawlers/bastion to hit level 7–8.",
-      "Two Chronobreak is your econ engine — play for streaks or loss farming deliberately.",
-      "Itemize Ezreal first; Pantheon and cheap frontline soak while you three-star Ezreal.",
-      "Ekko boons can add weird high-roll swings if you pivot late.",
+      {
+        en: "The Chronobreak (Timebreaker) trait only has four champions — fill the board with brawlers/bastion to hit level 7–8.",
+        tr: "Chronobreak (Zamankıran) özelliğinde yalnızca dört şampiyon bulunur — seviye 7–8'e ulaşmak için geri kalan yerleri brawler/bastion ile doldurun.",
+      },
+      {
+        en: "Two Chronobreak is your econ engine — play for streaks or loss farming deliberately.",
+        tr: "İki Kronoparca ekonomi motorunuzdur — kasıtlı olarak galibiyet veya yenilgi streakine oynayın.",
+      },
+      {
+        en: "Itemize Ezreal first; Pantheon and cheap frontline soak while you three-star Ezreal.",
+        tr: "Önce Ezreal'i eşyalandırın; Pantheon ve ucuz ön saf üç yıldız yapana kadar dayanır.",
+      },
+      {
+        en: "Ekko boons can add weird high-roll swings if you pivot late.",
+        tr: "Ekko boonları geç pivotta tuhaf yüksek rulo salınımları ekleyebilir.",
+      },
     ],
-    godHint: "Scaling / time: Ekko",
+    godHint: {
+      en: "Scaling / time: Ekko",
+      tr: "Ölçekleme / zaman: Ekko",
+    },
   },
   {
     slug: "primordial-reroll",
-    name: "Primordial Reroll",
-    summary:
-      "Primordia reroll: swarms and early random one-costs fuel a mid-game spike.",
+    name: {
+      en: "Primordial Reroll",
+      tr: "İlkel Yeniden Açılım",
+    },
+    summary: {
+      en: "Primordia reroll: swarms and early random one-costs fuel a mid-game spike.",
+      tr: "Primordia yeniden açılımı: sürü ve erken rastgele bir altın birimler orta oyun zirvesini besler.",
+    },
     patch: "17.1",
     lastUpdated: "2026-04-19",
     tier: "S",
     difficulty: "medium",
     playstyle: "slow_roll",
-    rollInfo: "Slow roll at 6 for three-star one and two costs.",
+    rollInfo: {
+      en: "Slow roll at 6 for three-star one and two costs.",
+      tr: "Bir ve iki altın birimleri üç yıldızlamak için seviye 6'da yavaş açılım.",
+    },
     traits: [
       { name: "Primordia", count: 3 },
       { name: "Slayer", count: 2 },
@@ -257,24 +408,47 @@ export const SET17_COMPS: Comp[] = [
       { champion: "Shen", items: ["Sunfire Aegis", "Steadfast Heart"], role: "tank", cost: 5 },
     ],
     notes: [
-      "Primordia only has three trait units — the rest of the board is flex frontline and N.O.V.A. or other synergies.",
-      "Star level increases swarm spawns — prioritize triples on cheap Primordia units.",
-      "Bel'Veth is a strong secondary carry if AD items show up.",
-      "Soraka keeps you healthy if you need to loss streak early.",
+      {
+        en: "Primordia only has three trait units — the rest of the board is flex frontline and N.O.V.A. or other synergies.",
+        tr: "Primordia özelliğinde yalnızca üç birim bulunur — tahtanın geri kalanını esnek ön saf ve N.O.V.A. veya diğer sinerjilerle doldurun.",
+      },
+      {
+        en: "Star level increases swarm spawns — prioritize triples on cheap Primordia units.",
+        tr: "Yıldız seviyesi sürü üretimini artırır — ucuz Primordia birimlerinde üçlü önceliklendirin.",
+      },
+      {
+        en: "Bel'Veth is a strong secondary carry if AD items show up.",
+        tr: "Bel'Veth, AD eşyaları gelirse güçlü bir ikincil taşıyıcıdır.",
+      },
+      {
+        en: "Soraka keeps you healthy if you need to loss streak early.",
+        tr: "Erken kaybetmeniz gerekiyorsa Soraka sağlıklı tutmanıza yardımcı olur.",
+      },
     ],
-    godHint: "HP / loss streak: Soraka",
+    godHint: {
+      en: "HP / loss streak: Soraka",
+      tr: "HP / kayıp streak: Soraka",
+    },
   },
   {
     slug: "anima-jinx",
-    name: "Anima Jinx",
-    summary:
-      "Anima vertical with Jinx carry; stacks tech on losses and kills for prototype weapons.",
+    name: {
+      en: "Anima Jinx",
+      tr: "Anima Jinx",
+    },
+    summary: {
+      en: "Anima vertical with Jinx carry; stacks tech on losses and kills for prototype weapons.",
+      tr: "Jinx taşıyıcısıyla Anima dikey; yenilgilerden ve öldürmelerden teknoloji yığar ve prototip silahlar üretir.",
+    },
     patch: "17.1",
     lastUpdated: "2026-04-19",
     tier: "S",
     difficulty: "hard",
     playstyle: "standard",
-    rollInfo: "Level 7–8 roll for Jinx items and Anima breakpoints.",
+    rollInfo: {
+      en: "Level 7–8 roll for Jinx items and Anima breakpoints.",
+      tr: "Jinx eşyaları ve Anima eşik noktaları için seviye 7–8 açılımı.",
+    },
     traits: [
       { name: "Anima", count: 3 },
       { name: "Gunslinger", count: 2 },
@@ -290,23 +464,43 @@ export const SET17_COMPS: Comp[] = [
       { champion: "Shen", items: ["Steadfast Heart", "Warmog's Armor"], role: "tank", cost: 5 },
     ],
     notes: [
-      "Anima tech stacks change your itemization each game — review weapon offers carefully.",
-      "Hard to pilot; weak without good augments or early Anima pairs.",
-      "Aurelion Sol tasks can accelerate tech generation.",
+      {
+        en: "Anima tech stacks change your itemization each game — review weapon offers carefully.",
+        tr: "Anima teknoloji yığınları her oyun eşyalandırmanızı değiştirir — silah tekliflerini dikkatle inceleyin.",
+      },
+      {
+        en: "Hard to pilot; weak without good augments or early Anima pairs.",
+        tr: "Pilotlanması zordur; iyi augment veya erken Anima çifti olmadan zayıftır.",
+      },
+      {
+        en: "Aurelion Sol tasks can accelerate tech generation.",
+        tr: "Aurelion Sol görevleri teknoloji üretimini hızlandırabilir.",
+      },
     ],
-    godHint: "Tasks: Aurelion Sol",
+    godHint: {
+      en: "Tasks: Aurelion Sol",
+      tr: "Görevler: Aurelion Sol",
+    },
   },
   {
     slug: "dark-star-entry",
-    name: "Dark Star Entry",
-    summary:
-      "Dark Star mid-game board: cheap units plus four-cost carries before pivoting to a full vertical.",
+    name: {
+      en: "Dark Star Entry",
+      tr: "Karanlık Yıldız Girişi",
+    },
+    summary: {
+      en: "Dark Star mid-game board: cheap units plus four-cost carries before pivoting to a full vertical.",
+      tr: "Karanlık Yıldız orta oyun tahtası: ucuz birimler ve dört altın taşıyıcılar, ardından tam dikeye geçiş.",
+    },
     patch: "17.1",
     lastUpdated: "2026-04-19",
     tier: "B",
     difficulty: "easy",
     playstyle: "standard",
-    rollInfo: "Level 7–8 roll; pivot to five-cost Dark Star caps if economy allows.",
+    rollInfo: {
+      en: "Level 7–8 roll; pivot to five-cost Dark Star caps if economy allows.",
+      tr: "Seviye 7–8 açılımı; ekonomi uygun olursa beş altın Karanlık Yıldız tavanlarına geçiş.",
+    },
     traits: [
       { name: "Dark Star", count: 4 },
       { name: "Bruiser", count: 2 },
@@ -322,24 +516,47 @@ export const SET17_COMPS: Comp[] = [
       { champion: "Kaisa", items: ["Guinsoo's Rageblade", "Statikk Shiv"], role: "flex", cost: 4 },
     ],
     notes: [
-      "Eight slots reflect a realistic mid board — not a three-unit opener.",
-      "Transition into Jhin or other five-cost Dark Star caps when healthy.",
-      "Black hole timing matters; position to hit clumped enemies.",
-      "Thresh random boons can bail out bad shops.",
+      {
+        en: "Eight slots reflect a realistic mid board — not a three-unit opener.",
+        tr: "Sekiz slot gerçekçi bir orta tahta yansıtır — üç birimlik bir açılış değil.",
+      },
+      {
+        en: "Transition into Jhin or other five-cost Dark Star caps when healthy.",
+        tr: "Sağlıklıyken Jhin veya diğer beş altın Karanlık Yıldız tavanlarına geçin.",
+      },
+      {
+        en: "Black hole timing matters; position to hit clumped enemies.",
+        tr: "Kara delik zamanlaması önemlidir; kümelenmiş düşmanlara vurmak için konumlandırın.",
+      },
+      {
+        en: "Thresh random boons can bail out bad shops.",
+        tr: "Thresh'in rastgele boonları kötü dükkanları kurtarabilir.",
+      },
     ],
-    godHint: "Gamble: Thresh",
+    godHint: {
+      en: "Gamble: Thresh",
+      tr: "Kumar: Thresh",
+    },
   },
   {
     slug: "psyonic-duo",
-    name: "Psionic Duo",
-    summary:
-      "Low vertical Psionic splash: two trait for modes, flex the rest of the board.",
+    name: {
+      en: "Psionic Duo",
+      tr: "Psionik İkili",
+    },
+    summary: {
+      en: "Low vertical Psionic splash: two trait for modes, flex the rest of the board.",
+      tr: "Düşük dikey Psionik ekleme: mod için iki özellik, tahtanın geri kalanı esnek.",
+    },
     patch: "17.1",
     lastUpdated: "2026-04-19",
     tier: "B",
     difficulty: "medium",
     playstyle: "standard",
-    rollInfo: "Play strongest board; add Psionic two for utility.",
+    rollInfo: {
+      en: "Play strongest board; add Psionic two for utility.",
+      tr: "En güçlü tahtayı oynayın; fayda için Psionik iki ekleyin.",
+    },
     traits: [
       { name: "Psionic", count: 2 },
       { name: "Bruiser", count: 2 },
@@ -355,11 +572,26 @@ export const SET17_COMPS: Comp[] = [
       { champion: "Aatrox", items: [], role: "flex", cost: 1 },
     ],
     notes: [
-      "Example eight-slot board: Psionic 2 for Viktor and Zoe; the rest is bruiser frontline.",
-      "Not a full Psionic vertical — use when augments or shop push AP + frontline.",
-      "Psionic four is a big jump; only chase with a good emblem or opener.",
-      "Kayle component packs help itemize flex carries.",
+      {
+        en: "Example eight-slot board: Psionic 2 for Viktor and Zoe; the rest is bruiser frontline.",
+        tr: "Örnek sekiz slot tahtası: Viktor ve Zoe için Psionik 2; geri kalanı brawler ön saf.",
+      },
+      {
+        en: "Not a full Psionic vertical — use when augments or shop push AP + frontline.",
+        tr: "Tam Psionik dikey değil — augment veya dükkan AP + ön saf desteklerken kullanın.",
+      },
+      {
+        en: "Psionic four is a big jump; only chase with a good emblem or opener.",
+        tr: "Psionik dört büyük bir sıçramadır; yalnızca iyi bir amblem veya açılışla kovalayın.",
+      },
+      {
+        en: "Kayle component packs help itemize flex carries.",
+        tr: "Kayle bileşen paketleri esnek taşıyıcıları eşyalandırmaya yardımcı olur.",
+      },
     ],
-    godHint: "Components: Kayle",
+    godHint: {
+      en: "Components: Kayle",
+      tr: "Bileşenler: Kayle",
+    },
   },
 ];

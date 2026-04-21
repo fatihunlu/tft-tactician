@@ -1,6 +1,13 @@
 @import "tailwindcss";
 
-/* Muted Riot red (~#d13639) background stack */
+/* ────────────────────────────────────────────
+   Design token system
+   Follows frontend-design SKILL guidelines:
+   - CSS variables for all theme-sensitive values
+   - Dark default (Riot red deep-space palette)
+   - Light variant uses warm parchment tones
+   ──────────────────────────────────────────── */
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -8,6 +15,13 @@
   --bg-riot-deep: #0c0607;
   --bg-riot-mid: #160a0c;
   --bg-riot-top: #221014;
+  /* Surface tokens */
+  --surface-1: rgba(255,255,255,0.05);
+  --surface-2: rgba(255,255,255,0.08);
+  --border-subtle: rgba(255,255,255,0.10);
+  --text-primary: #f4f0f0;
+  --text-secondary: rgba(244,220,220,0.75);
+  --text-muted: rgba(244,200,200,0.45);
 }
 
 @theme inline {
@@ -28,12 +42,19 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* App uses .dark; background is desaturated Riot red */
 .dark body {
   --background: var(--bg-riot-deep);
   --foreground: #f4f0f0;
+  --surface-1: rgba(255,255,255,0.05);
+  --surface-2: rgba(255,255,255,0.08);
+  --border-subtle: rgba(255,255,255,0.10);
+  --text-primary: #f4f0f0;
+  --text-secondary: rgba(244,220,220,0.75);
+  --text-muted: rgba(244,200,200,0.45);
   background-color: var(--bg-riot-deep);
   background-image: linear-gradient(
     165deg,
@@ -43,4 +64,117 @@ body {
     #070304 100%
   );
   background-attachment: fixed;
+}
+
+/* Light mode — warm parchment with subtle red warmth */
+.light body {
+  --background: #f5eeeb;
+  --foreground: #1c0608;
+  --surface-1: rgba(0,0,0,0.04);
+  --surface-2: rgba(0,0,0,0.07);
+  --border-subtle: rgba(150,30,30,0.15);
+  --text-primary: #1c0608;
+  --text-secondary: rgba(100,20,20,0.80);
+  --text-muted: rgba(100,20,20,0.50);
+  background-color: #f5eeeb;
+  background-image: linear-gradient(
+    165deg,
+    #fff0ee 0%,
+    #fae8e4 38%,
+    #f2dedd 68%,
+    #ede0de 100%
+  );
+  background-attachment: fixed;
+}
+
+/* Light mode header + footer overrides */
+.light header {
+  background-color: rgba(245,235,232,0.90) !important;
+  border-bottom-color: rgba(150,30,30,0.15) !important;
+}
+.light footer {
+  background-color: rgba(245,235,232,0.92) !important;
+  border-top-color: rgba(150,30,30,0.15) !important;
+  color: rgba(80,15,15,0.65) !important;
+}
+
+/* Light mode readability overrides for frequently used utility classes */
+.light .text-white,
+.light .text-red-50,
+.light .text-red-100,
+.light .text-zinc-100 {
+  color: #2a0d10 !important;
+}
+
+.light .text-red-100\/90,
+.light .text-red-100\/95,
+.light .text-red-100\/75,
+.light .text-red-100\/72,
+.light .text-red-100\/70,
+.light .text-red-100\/65,
+.light .text-red-100\/60,
+.light .text-red-200\/90,
+.light .text-red-200\/70,
+.light .text-red-200\/60,
+.light .text-red-200\/55,
+.light .text-red-200\/50,
+.light .text-red-200\/45,
+.light .text-red-300\/90,
+.light .text-zinc-400 {
+  color: rgba(93, 24, 28, 0.82) !important;
+}
+
+.light .bg-white\/5,
+.light .bg-white\/10,
+.light .bg-white\/3,
+.light .bg-white\/\[0\.07\],
+.light .bg-white\/\[0\.03\] {
+  background-color: rgba(131, 34, 42, 0.08) !important;
+}
+
+.light .border-white\/10,
+.light .border-white\/5 {
+  border-color: rgba(131, 34, 42, 0.22) !important;
+}
+
+.light .bg-red-950\/50,
+.light .bg-red-950\/70,
+.light .bg-red-950\/35,
+.light .bg-red-950\/80,
+.light .bg-red-950\/90 {
+  background-color: rgba(118, 28, 35, 0.11) !important;
+}
+
+.light .placeholder\:text-red-200\/35::placeholder {
+  color: rgba(120, 45, 48, 0.46) !important;
+}
+
+.light .hover\:text-red-100:hover,
+.light .hover\:text-red-100\/90:hover {
+  color: #3a1014 !important;
+}
+
+.light .hover\:border-red-400\/30:hover,
+.light .hover\:border-red-400\/25:hover,
+.light .focus\:border-red-400\/45:focus {
+  border-color: rgba(186, 45, 58, 0.55) !important;
+}
+
+.light .bg-\[\#121418\] {
+  background-color: rgba(255, 245, 242, 0.72) !important;
+}
+
+.light .from-\[\#101318\],
+.light .to-\[\#0d1015\] {
+  --tw-gradient-from: rgba(170, 60, 70, 0.12) var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgba(130, 40, 50, 0.06) var(--tw-gradient-to-position) !important;
+}
+
+/* Animate-in helper for settings dropdown */
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)   scale(1);    }
+}
+.animate-in {
+  animation: panel-in 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
 }

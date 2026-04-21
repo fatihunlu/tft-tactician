@@ -1,5 +1,9 @@
-import Link from "next/link";
+"use client";
+
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import type { Comp } from "@/types/comp";
+import { t as loc } from "@/types/comp";
 import { DifficultyBadge } from "./DifficultyBadge";
 
 const tierRing: Record<string, string> = {
@@ -30,15 +34,22 @@ function TierBadge({ tier }: { tier: Comp["tier"] }) {
   );
 }
 
-const playstyleLabel: Record<Comp["playstyle"], string> = {
-  slow_roll: "Slow roll",
-  fast_8: "Fast 8",
-  fast_9: "Fast 9",
-  standard: "Standard tempo",
-};
+function playstyleKey(playstyle: Comp["playstyle"]): string {
+  const map: Record<Comp["playstyle"], string> = {
+    slow_roll: "slow_roll",
+    fast_8: "fast_8",
+    fast_9: "fast_9",
+    standard: "standard",
+  };
+  return map[playstyle];
+}
 
-export function CompCard({ comp }: { comp: Comp }) {
+export function CompCard({ comp, locale }: { comp: Comp; locale: string }) {
+  const tCard = useTranslations("card");
+  const tPlaystyle = useTranslations("playstyle");
   const ring = tierRing[comp.tier] ?? tierRing.B;
+  const name = loc(comp.name, locale);
+  const summary = loc(comp.summary, locale);
 
   return (
     <Link
@@ -48,27 +59,27 @@ export function CompCard({ comp }: { comp: Comp }) {
       <div className="flex items-start justify-between gap-3">
         <div>
           <h2 className="text-lg font-semibold tracking-tight text-white group-hover:text-red-100">
-            {comp.name}
+            {name}
           </h2>
           <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-red-100/70">
-            {comp.summary}
+            {summary}
           </p>
         </div>
         <TierBadge tier={comp.tier} />
       </div>
       <dl className="mt-4 grid grid-cols-2 gap-x-3 gap-y-3 text-xs text-red-100/55">
         <div className="flex min-w-0 flex-col gap-1.5">
-          <dt className="text-[0.65rem] leading-normal text-red-200/45">Difficulty</dt>
+          <dt className="text-[0.65rem] leading-normal text-red-200/45">{tCard("difficulty")}</dt>
           <dd className="leading-normal">
             <DifficultyBadge difficulty={comp.difficulty} size="sm" />
           </dd>
         </div>
         <div className="flex min-w-0 flex-col gap-1.5">
-          <dt className="text-[0.65rem] leading-normal text-red-200/45">Plan</dt>
-          <dd className="font-medium leading-snug text-red-50">{playstyleLabel[comp.playstyle]}</dd>
+          <dt className="text-[0.65rem] leading-normal text-red-200/45">{tCard("plan")}</dt>
+          <dd className="font-medium leading-snug text-red-50">{tPlaystyle(playstyleKey(comp.playstyle) as Parameters<typeof tPlaystyle>[0])}</dd>
         </div>
         <div className="col-span-2 flex flex-col gap-1.5">
-          <dt className="text-[0.65rem] leading-normal text-red-200/45">Patch</dt>
+          <dt className="text-[0.65rem] leading-normal text-red-200/45">{tCard("patch")}</dt>
           <dd className="font-medium leading-snug text-red-50">{comp.patch}</dd>
         </div>
       </dl>

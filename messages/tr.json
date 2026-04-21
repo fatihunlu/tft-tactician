@@ -1,0 +1,108 @@
+{
+  "layout": {
+    "title": "TFT Taktisyen · Set 17",
+    "titleTemplate": "%s · TFT Taktisyen",
+    "description": "Teamfight Tactics Set 17 (Uzay Tanrıları) öne çıkan kadro kuruluşları, eşya seçimleri ve oyun planları.",
+    "set": "Set 17",
+    "footer": {
+      "disclaimer": "TFT Taktisyen bir hayran rehberidir ve Riot Games ile bağlantısı yoktur. Şampiyon adları ve görselleri Riot Games'e aittir.",
+      "riotLink": "Riot — Set 17 genel bakış",
+      "mobalyticsLink": "Mobalytics — yeni set merkezi"
+    }
+  },
+  "home": {
+    "eyebrow": "TFT Set 17",
+    "title": "Uzay Tanrıları — öne çıkan kadrolar",
+    "description": "Güncel yama için güçlü kadro kuruluşları ve oyun planları. Katman listeleri ve birimler verilerden güncellenir — resmi özellik ve mekanikler için Riot yama notlarına bakın."
+  },
+  "compDetail": {
+    "backLink": "← Tüm kadrolar",
+    "breadcrumb": "Set 17 · Uzay Tanrıları",
+    "tier": "{tier} katmanı",
+    "gamePlan": "Oyun planı",
+    "difficulty": "Zorluk",
+    "patch": "Yama",
+    "contentUpdated": "İçerik güncelleme",
+    "spaceGodTip": "Uzay Tanrısı ipucu: ",
+    "traitHighlights": "Özellik öne çıkanlar",
+    "boardPreview": "Tahta önizleme",
+    "notes": "Notlar",
+    "notFound": "Kadro bulunamadı"
+  },
+  "gallery": {
+    "search": "Ara",
+    "searchPlaceholder": "Ad, slug veya özellik…",
+    "tier": "Katman",
+    "difficulty": "Zorluk",
+    "gamePlan": "Oyun planı",
+    "sort": "Sırala",
+    "noResults": "Bu filtrelerle eşleşen kadro yok.",
+    "tierOptions": {
+      "all": "Tüm katmanlar",
+      "S": "S",
+      "A": "A",
+      "B": "B"
+    },
+    "difficultyOptions": {
+      "all": "Tümü",
+      "easy": "Kolay",
+      "medium": "Orta",
+      "hard": "Zor"
+    },
+    "playstyleOptions": {
+      "all": "Tümü",
+      "slow_roll": "Yavaş açılım",
+      "fast_8": "Hızlı 8",
+      "fast_9": "Hızlı 9",
+      "standard": "Standart"
+    },
+    "sortOptions": {
+      "tier": "Katman (S → A → B)",
+      "difficulty": "Zorluk (kolay → zor)",
+      "name": "Ad (A–Z)",
+      "lastUpdated": "Son güncelleme (en yeni)"
+    }
+  },
+  "card": {
+    "difficulty": "Zorluk",
+    "plan": "Plan",
+    "patch": "Yama"
+  },
+  "unit": {
+    "cost": "{cost} altın",
+    "noItems": "Temel eşya yok (esnek)",
+    "itemsAriaLabel": "Eşyalar: {items}",
+    "roles": {
+      "carry": "Taşıyıcı",
+      "tank": "Tank",
+      "support": "Destek",
+      "flex": "Esnek"
+    }
+  },
+  "playstyle": {
+    "slow_roll": "Yavaş açılım",
+    "fast_8": "Hızlı 8",
+    "fast_9": "Hızlı 9",
+    "standard": "Standart tempo"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "open": "Ayarları aç",
+    "quickTheme": "Hızlı tema",
+    "language": "Dil",
+    "theme": "Tema",
+    "dark": "Karanlık",
+    "light": "Aydınlık",
+    "switchToDark": "Karanlık temaya geç",
+    "switchToLight": "Aydınlık temaya geç"
+  },
+  "board": {
+    "recommendedPiles": "Önerilen yerleşimler",
+    "priorityUnits": "Öncelikli Birimler"
+  },
+  "notFound": {
+    "title": "Sayfa bulunamadı",
+    "description": "Bu kadro veya URL mevcut değil.",
+    "back": "Ana sayfaya dön"
+  }
+}

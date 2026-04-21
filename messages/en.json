@@ -1,0 +1,108 @@
+{
+  "layout": {
+    "title": "TFT Tactician · Set 17",
+    "titleTemplate": "%s · TFT Tactician",
+    "description": "Featured Teamfight Tactics Set 17 (Space Gods) team comps, itemization, and game plans.",
+    "set": "Set 17",
+    "footer": {
+      "disclaimer": "TFT Tactician is a fan-made guide and is not affiliated with Riot Games. Champion names and art are property of Riot Games.",
+      "riotLink": "Riot — Set 17 overview",
+      "mobalyticsLink": "Mobalytics — new set hub"
+    }
+  },
+  "home": {
+    "eyebrow": "TFT Set 17",
+    "title": "Space Gods — featured comps",
+    "description": "Strong team comps and game plans for the current patch. Tier lists and units are maintained in data — check Riot patch notes for official traits and mechanics."
+  },
+  "compDetail": {
+    "backLink": "← All comps",
+    "breadcrumb": "Set 17 · Space Gods",
+    "tier": "{tier} tier",
+    "gamePlan": "Game plan",
+    "difficulty": "Difficulty",
+    "patch": "Patch",
+    "contentUpdated": "Content updated",
+    "spaceGodTip": "Space God tip: ",
+    "traitHighlights": "Trait highlights",
+    "boardPreview": "Board preview",
+    "notes": "Notes",
+    "notFound": "Comp not found"
+  },
+  "gallery": {
+    "search": "Search",
+    "searchPlaceholder": "Name, slug, or trait…",
+    "tier": "Tier",
+    "difficulty": "Difficulty",
+    "gamePlan": "Game plan",
+    "sort": "Sort",
+    "noResults": "No comps match these filters.",
+    "tierOptions": {
+      "all": "All tiers",
+      "S": "S",
+      "A": "A",
+      "B": "B"
+    },
+    "difficultyOptions": {
+      "all": "All",
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "playstyleOptions": {
+      "all": "All",
+      "slow_roll": "Slow roll",
+      "fast_8": "Fast 8",
+      "fast_9": "Fast 9",
+      "standard": "Standard"
+    },
+    "sortOptions": {
+      "tier": "Tier (S → A → B)",
+      "difficulty": "Difficulty (easy → hard)",
+      "name": "Name (A–Z)",
+      "lastUpdated": "Last updated (newest)"
+    }
+  },
+  "card": {
+    "difficulty": "Difficulty",
+    "plan": "Plan",
+    "patch": "Patch"
+  },
+  "unit": {
+    "cost": "{cost}-cost",
+    "noItems": "No core items (flex)",
+    "itemsAriaLabel": "Items: {items}",
+    "roles": {
+      "carry": "Carry",
+      "tank": "Tank",
+      "support": "Support",
+      "flex": "Flex"
+    }
+  },
+  "playstyle": {
+    "slow_roll": "Slow roll",
+    "fast_8": "Fast 8",
+    "fast_9": "Fast 9",
+    "standard": "Standard tempo"
+  },
+  "settings": {
+    "title": "Settings",
+    "open": "Open settings",
+    "quickTheme": "Quick theme",
+    "language": "Language",
+    "theme": "Theme",
+    "dark": "Dark",
+    "light": "Light",
+    "switchToDark": "Switch to dark theme",
+    "switchToLight": "Switch to light theme"
+  },
+  "board": {
+    "recommendedPiles": "Recommended piles",
+    "priorityUnits": "Priority Units"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "That comp or URL does not exist.",
+    "back": "Back to home"
+  }
+}

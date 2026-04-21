@@ -1,10 +1,7 @@
-import type { Comp } from "@/types/comp";
+"use client";
 
-const difficultyLabel: Record<Comp["difficulty"], string> = {
-  easy: "Easy",
-  medium: "Medium",
-  hard: "Hard",
-};
+import { useTranslations } from "next-intl";
+import type { Comp } from "@/types/comp";
 
 const difficultyBadgeClass: Record<Comp["difficulty"], string> = {
   easy:
@@ -27,11 +24,19 @@ export function DifficultyBadge({
   difficulty: Comp["difficulty"];
   size?: "sm" | "md";
 }) {
+  const t = useTranslations("gallery.difficultyOptions");
+  const label =
+    difficulty === "easy"
+      ? t("easy")
+      : difficulty === "medium"
+        ? t("medium")
+        : t("hard");
+
   return (
     <span
       className={`inline-flex items-center justify-center rounded-full border ${sizeClass[size]} ${difficultyBadgeClass[difficulty]}`}
     >
-      {difficultyLabel[difficulty]}
+      {label}
     </span>
   );
 }

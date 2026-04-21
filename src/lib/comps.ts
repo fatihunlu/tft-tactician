@@ -1,5 +1,5 @@
 import { SET17_COMPS } from "@/data/set17/comps";
-import type { Comp, CompTier, Difficulty, Playstyle } from "@/types/comp";
+import type { Comp, CompTier, Difficulty, LocalizedString, Playstyle } from "@/types/comp";
 
 export function getAllComps(): Comp[] {
   return SET17_COMPS;
@@ -42,11 +42,16 @@ function textMatches(haystack: string, needle: string): boolean {
   return nAlnum.length > 0 && hAlnum.includes(nAlnum);
 }
 
+/** Match a LocalizedString against the needle (searches both EN and TR). */
+function localizedMatches(str: LocalizedString, needle: string): boolean {
+  return textMatches(str.en, needle) || textMatches(str.tr, needle);
+}
+
 export function compMatchesSearchQuery(comp: Comp, rawQuery: string): boolean {
   const q = rawQuery.trim();
   if (!q) return true;
 
-  if (textMatches(comp.name, q)) return true;
+  if (localizedMatches(comp.name, q)) return true;
   if (textMatches(comp.slug, q)) return true;
   const slugAsWords = comp.slug.replace(/-/g, " ");
   if (textMatches(slugAsWords, q)) return true;
@@ -72,32 +77,34 @@ const DIFFICULTY_ORDER: Record<Difficulty, number> = {
 
 export type CompSortKey = "tier" | "difficulty" | "name" | "lastUpdated";
 
-/** Stable tie-breaker: comp name (en-US). */
-function compareName(a: Comp, b: Comp): number {
-  return a.name.localeCompare(b.name, "en-US", { sensitivity: "base" });
+/** Stable tie-breaker: comp name. */
+function compareName(a: Comp, b: Comp, locale = "en"): number {
+  const la = (a.name as Record<string, string>)[locale] ?? a.name.en;
+  const lb = (b.name as Record<string, string>)[locale] ?? b.name.en;
+  return la.localeCompare(lb, locale, { sensitivity: "base" });
 }
 
 /**
  * Returns a new array. Tier: S → A → B. Difficulty: easy → hard. Name: A–Z.
  * Last updated: newest first (`lastUpdated` is expected as ISO `YYYY-MM-DD`).
  */
-export function sortComps(comps: Comp[], sortBy: CompSortKey): Comp[] {
+export function sortComps(comps: Comp[], sortBy: CompSortKey, locale = "en"): Comp[] {
   const out = [...comps];
   out.sort((a, b) => {
     switch (sortBy) {
       case "tier": {
         const d = TIER_ORDER[a.tier] - TIER_ORDER[b.tier];
-        return d !== 0 ? d : compareName(a, b);
+        return d !== 0 ? d : compareName(a, b, locale);
       }
       case "difficulty": {
         const d = DIFFICULTY_ORDER[a.difficulty] - DIFFICULTY_ORDER[b.difficulty];
-        return d !== 0 ? d : compareName(a, b);
+        return d !== 0 ? d : compareName(a, b, locale);
       }
       case "name":
-        return compareName(a, b);
+        return compareName(a, b, locale);
       case "lastUpdated": {
         const d = b.lastUpdated.localeCompare(a.lastUpdated);
-        return d !== 0 ? d : compareName(a, b);
+        return d !== 0 ? d : compareName(a, b, locale);
       }
       default:
         return 0;

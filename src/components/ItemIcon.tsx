@@ -25,7 +25,7 @@ export function ItemIcon({ name, size = 24, className = "" }: Props) {
 
   return (
     <span
-      className={`relative inline-flex shrink-0 overflow-hidden rounded-md border border-red-500/20 bg-gradient-to-br from-red-950/80 to-neutral-950 ${className}`}
+      className={`relative inline-flex shrink-0 overflow-hidden rounded-md border border-red-500/20 bg-linear-to-br from-red-950/80 to-neutral-950 ${className}`}
       style={{ width: size, height: size }}
       title={name}
     >
