@@ -18,18 +18,29 @@ export type TraitHighlight = {
   count: number;
 };
 
+/** A string that has both English and Turkish translations. */
+export type LocalizedString = {
+  en: string;
+  tr: string;
+};
+
+/** Pick the right locale string, falling back to English. */
+export function t(str: LocalizedString, locale: string): string {
+  return (str as Record<string, string>)[locale] ?? str.en;
+}
+
 export type Comp = {
   slug: string;
-  name: string;
-  summary: string;
+  name: LocalizedString;
+  summary: LocalizedString;
   patch: string;
   lastUpdated: string;
   tier: CompTier;
   difficulty: Difficulty;
   playstyle: Playstyle;
-  rollInfo: string;
+  rollInfo: LocalizedString;
   traits: TraitHighlight[];
   units: CompUnit[];
-  notes: string[];
-  godHint?: string;
+  notes: LocalizedString[];
+  godHint?: LocalizedString;
 };

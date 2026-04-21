@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import type { CompUnit } from "@/types/comp";
 import { ChampionAvatar } from "./ChampionAvatar";
 import { ItemIcon } from "./ItemIcon";
@@ -149,6 +152,8 @@ function HexSlot({ unit }: { unit?: CompUnit }) {
 }
 
 export function MetaBoardPreview({ units }: { units: CompUnit[] }) {
+  const t = useTranslations("board");
+  const tRoles = useTranslations("unit.roles");
   const positioned = placeBoardUnits(units);
   const boardUnits = positioned.filter((u) => u.source === "board");
   const benchUnits = positioned.filter((u) => u.source === "bench");
@@ -157,9 +162,9 @@ export function MetaBoardPreview({ units }: { units: CompUnit[] }) {
   return (
     <div className="mt-4 grid gap-4 xl:grid-cols-[minmax(0,1fr)_260px]">
       <div className="rounded-xl border border-white/10 bg-[#121418] p-3">
-        <div className="mb-2 text-sm font-medium text-zinc-100">Recommended piles</div>
+        <div className="mb-2 text-sm font-medium text-zinc-100">{t("recommendedPiles")}</div>
 
-        <div className="flex justify-center rounded-lg border border-white/10 bg-gradient-to-b from-[#101318] to-[#0d1015] p-5">
+        <div className="flex justify-center rounded-lg border border-white/10 bg-linear-to-b from-[#101318] to-[#0d1015] p-5">
           <div style={{ width: BOARD_WIDTH }}>
             <div className="relative" style={{ height: BENCH_HEIGHT }}>
               {Array.from({ length: COLS }, (_, col) => {
@@ -213,7 +218,7 @@ export function MetaBoardPreview({ units }: { units: CompUnit[] }) {
       </div>
 
       <aside className="rounded-xl border border-white/10 bg-[#121418] p-3">
-        <h3 className="text-sm font-semibold text-zinc-100">Priority Units</h3>
+        <h3 className="text-sm font-semibold text-zinc-100">{t("priorityUnits")}</h3>
         <ul className="mt-3 space-y-2">
           {picks.map((u) => (
             <li
@@ -228,7 +233,11 @@ export function MetaBoardPreview({ units }: { units: CompUnit[] }) {
               </div>
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm text-zinc-100">{u.champion}</p>
-                <p className="text-[11px] text-zinc-400">{u.role ?? "flex"}</p>
+                <p className="text-[11px] text-zinc-400">
+                  {u.role
+                    ? tRoles(u.role as Parameters<typeof tRoles>[0])
+                    : tRoles("flex")}
+                </p>
               </div>
               <div className="flex items-center gap-1">
                 {u.items.slice(0, 2).map((item) => (
