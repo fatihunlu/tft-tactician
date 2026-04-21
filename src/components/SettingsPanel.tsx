@@ -19,6 +19,18 @@ export function SettingsPanel({ currentLocale }: { currentLocale: string }) {
   const pathname = usePathname();
 
   const quickToggleTooltip = theme === "dark" ? t("switchToLight") : t("switchToDark");
+  const controlBaseClass =
+    theme === "dark"
+      ? "border-white/10 bg-white/5 text-red-200/70 hover:border-red-400/30 hover:bg-white/10 hover:text-red-100"
+      : "border-red-900/20 bg-red-900/6 text-red-900/70 hover:border-red-700/30 hover:bg-red-900/10 hover:text-red-950";
+
+  const panelClass =
+    theme === "dark"
+      ? "border-white/10 bg-[#1a0b0e]/95 ring-black/40"
+      : "border-red-900/15 bg-[#fff3f0]/95 ring-red-900/10";
+
+  const titleClass = theme === "dark" ? "text-red-300/60" : "text-red-900/55";
+  const sectionLabelClass = theme === "dark" ? "text-red-200/45" : "text-red-900/55";
 
   // Close on outside click
   useEffect(() => {
@@ -53,7 +65,7 @@ export function SettingsPanel({ currentLocale }: { currentLocale: string }) {
         onClick={toggleTheme}
         title={quickToggleTooltip}
         aria-label={quickToggleTooltip}
-        className="group relative flex items-center justify-center size-8 rounded-lg border border-white/10 bg-white/5 text-red-200/70 transition-all hover:border-red-400/30 hover:bg-white/10 hover:text-red-100 active:scale-95"
+        className={`group relative flex items-center justify-center size-8 rounded-lg border transition-all active:scale-95 ${controlBaseClass}`}
       >
         {theme === "dark" ? <SunIcon /> : <MoonIcon />}
       </button>
@@ -63,21 +75,21 @@ export function SettingsPanel({ currentLocale }: { currentLocale: string }) {
         aria-label={t("open")}
         title={t("open")}
         aria-expanded={open}
-        className="flex items-center justify-center size-8 rounded-lg border border-white/10 bg-white/5 text-red-200/70 transition-all hover:border-red-400/30 hover:bg-white/10 hover:text-red-100 active:scale-95"
+        className={`flex items-center justify-center size-8 rounded-lg border transition-all active:scale-95 ${controlBaseClass}`}
       >
         <GearIcon />
       </button>
 
       {/* Dropdown panel */}
       {open && (
-        <div className="absolute right-0 top-full mt-2 z-50 w-52 rounded-xl border border-white/10 bg-[#1a0b0e]/95 p-4 shadow-xl backdrop-blur-xl ring-1 ring-black/40 animate-in">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-red-300/60">
+        <div className={`absolute right-0 top-full mt-2 z-50 w-52 rounded-xl border p-4 shadow-xl backdrop-blur-xl ring-1 animate-in ${panelClass}`}>
+          <p className={`mb-3 text-xs font-semibold uppercase tracking-widest ${titleClass}`}>
             {t("title")}
           </p>
 
           {/* Language */}
           <div className="mb-3">
-            <p className="mb-1.5 text-[11px] font-medium text-red-200/45">
+            <p className={`mb-1.5 text-[11px] font-medium ${sectionLabelClass}`}>
               {t("language")}
             </p>
             <div className="flex gap-1.5">
@@ -87,8 +99,12 @@ export function SettingsPanel({ currentLocale }: { currentLocale: string }) {
                   onClick={() => switchLocale(l.value)}
                   className={`flex-1 rounded-lg border py-1.5 text-xs font-semibold transition-all ${
                     currentLocale === l.value
-                      ? "border-red-400/50 bg-red-500/20 text-red-100"
-                      : "border-white/10 bg-white/5 text-red-200/60 hover:border-red-400/25 hover:bg-white/10 hover:text-red-100"
+                      ? theme === "dark"
+                        ? "border-red-400/50 bg-red-500/20 text-red-100"
+                        : "border-red-700/45 bg-red-700/18 text-red-950"
+                      : theme === "dark"
+                        ? "border-white/10 bg-white/5 text-red-200/60 hover:border-red-400/25 hover:bg-white/10 hover:text-red-100"
+                        : "border-red-900/15 bg-red-900/6 text-red-900/65 hover:border-red-700/30 hover:bg-red-900/10 hover:text-red-950"
                   }`}
                   aria-pressed={currentLocale === l.value}
                 >
@@ -100,7 +116,7 @@ export function SettingsPanel({ currentLocale }: { currentLocale: string }) {
 
           {/* Theme */}
           <div>
-            <p className="mb-1.5 text-[11px] font-medium text-red-200/45">
+            <p className={`mb-1.5 text-[11px] font-medium ${sectionLabelClass}`}>
               {t("theme")}
             </p>
             <div className="flex gap-2">
@@ -112,8 +128,12 @@ export function SettingsPanel({ currentLocale }: { currentLocale: string }) {
                   aria-label={th === "dark" ? t("switchToDark") : t("switchToLight")}
                   className={`flex-1 rounded-lg border py-2.5 text-xs font-semibold transition-all ${
                     theme === th
-                      ? "border-red-400/50 bg-red-500/20 text-red-100"
-                      : "border-white/10 bg-white/5 text-red-200/60 hover:border-red-400/25 hover:bg-white/10 hover:text-red-100"
+                      ? theme === "dark"
+                        ? "border-red-400/50 bg-red-500/20 text-red-100"
+                        : "border-red-700/45 bg-red-700/18 text-red-950"
+                      : theme === "dark"
+                        ? "border-white/10 bg-white/5 text-red-200/60 hover:border-red-400/25 hover:bg-white/10 hover:text-red-100"
+                        : "border-red-900/15 bg-red-900/6 text-red-900/65 hover:border-red-700/30 hover:bg-red-900/10 hover:text-red-950"
                   }`}
                   aria-pressed={theme === th}
                 >

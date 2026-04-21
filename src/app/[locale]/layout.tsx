@@ -59,9 +59,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                 className="size-8 shrink-0 rounded-lg ring-1 ring-white/10 transition ring-offset-2 ring-offset-[#120709] group-hover/logo:ring-white/18"
                 priority
               />
-              <span className="text-white">
-                <span className="text-red-200/95">TFT</span> Tactician
-              </span>
+              <span className="text-white">{t("brand")}</span>
             </Link>
             <div className="flex items-center gap-3">
               <span className="text-xs text-red-200/55">{t("set")}</span>
