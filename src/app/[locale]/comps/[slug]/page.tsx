@@ -26,12 +26,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const comp = getCompBySlug(slug);
+  const tDetail = await getTranslations({ locale, namespace: "compDetail" });
   if (!comp) {
-    const tNotFound = await getTranslations({ locale, namespace: "compDetail" });
-    return { title: tNotFound("notFound") };
+    return { title: tDetail("notFound") };
   }
   return {
-    title: `${loc(comp.name, locale)} · TFT Set 17`,
+    title: tDetail("metaTitle", { compName: loc(comp.name, locale) }),
     description: loc(comp.summary, locale),
   };
 }

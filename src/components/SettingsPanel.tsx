@@ -62,20 +62,22 @@ export function SettingsPanel({ currentLocale }: { currentLocale: string }) {
   return (
     <div ref={panelRef} className="relative flex items-center gap-2">
       <button
+        type="button"
         onClick={toggleTheme}
         title={quickToggleTooltip}
         aria-label={quickToggleTooltip}
-        className={`group relative flex items-center justify-center size-8 rounded-lg border transition-all active:scale-95 ${controlBaseClass}`}
+        className={`group relative flex cursor-pointer items-center justify-center size-8 rounded-lg border transition-all active:scale-95 ${controlBaseClass}`}
       >
         {theme === "dark" ? <SunIcon /> : <MoonIcon />}
       </button>
 
       <button
+        type="button"
         onClick={() => setOpen((o) => !o)}
         aria-label={t("open")}
         title={t("open")}
         aria-expanded={open}
-        className={`flex items-center justify-center size-8 rounded-lg border transition-all active:scale-95 ${controlBaseClass}`}
+        className={`flex cursor-pointer items-center justify-center size-8 rounded-lg border transition-all active:scale-95 ${controlBaseClass}`}
       >
         <GearIcon />
       </button>
@@ -95,9 +97,10 @@ export function SettingsPanel({ currentLocale }: { currentLocale: string }) {
             <div className="flex gap-1.5">
               {LOCALES.map((l) => (
                 <button
+                  type="button"
                   key={l.value}
                   onClick={() => switchLocale(l.value)}
-                  className={`flex-1 rounded-lg border py-1.5 text-xs font-semibold transition-all ${
+                  className={`flex-1 cursor-pointer rounded-lg border py-1.5 text-xs font-semibold transition-all ${
                     currentLocale === l.value
                       ? theme === "dark"
                         ? "border-red-400/50 bg-red-500/20 text-red-100"
@@ -122,11 +125,12 @@ export function SettingsPanel({ currentLocale }: { currentLocale: string }) {
             <div className="flex gap-2">
               {(["dark", "light"] as const).map((th) => (
                 <button
+                  type="button"
                   key={th}
                   onClick={() => setTheme(th)}
                   title={th === "dark" ? t("switchToDark") : t("switchToLight")}
                   aria-label={th === "dark" ? t("switchToDark") : t("switchToLight")}
-                  className={`flex-1 rounded-lg border py-2.5 text-xs font-semibold transition-all ${
+                  className={`flex-1 cursor-pointer rounded-lg border py-2.5 text-xs font-semibold transition-all ${
                     theme === th
                       ? theme === "dark"
                         ? "border-red-400/50 bg-red-500/20 text-red-100"
@@ -161,9 +165,10 @@ function SunIcon() {
 }
 
 function MoonIcon() {
+  /* Filled crescent — stroke-only moon at 16px read as a blob + ring; fill reads clearly at small sizes */
   return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <path d="M10.9 1.8c-2.4.6-4.2 2.7-4.2 5.3 0 3.1 2.5 5.6 5.6 5.6.8 0 1.6-.2 2.3-.5-1 1.5-2.8 2.5-4.8 2.5-3.1 0-5.6-2.5-5.6-5.6 0-3 2.3-5.4 5.2-5.6.5 0 1 .1 1.5.3Z" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
     </svg>
   );
 }

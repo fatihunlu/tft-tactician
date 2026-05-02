@@ -1,12 +1,12 @@
 {
   "layout": {
-    "title": "TFT Taktisyen · Set 17",
-    "titleTemplate": "%s · TFT Taktisyen",
+    "title": "TFT Tactician · Set 17",
+    "titleTemplate": "%s · TFT Tactician",
     "description": "Teamfight Tactics Set 17 (Uzay Tanrıları) öne çıkan kadro kuruluşları, eşya seçimleri ve oyun planları.",
-    "brand": "TFT Taktisyen",
+    "brand": "TFT Tactician",
     "set": "Set 17",
     "footer": {
-      "disclaimer": "TFT Taktisyen bir hayran rehberidir ve Riot Games ile bağlantısı yoktur. Şampiyon adları ve görselleri Riot Games'e aittir.",
+      "disclaimer": "TFT Tactician bir hayran rehberidir ve Riot Games ile bağlantısı yoktur. Şampiyon adları ve görselleri Riot Games'e aittir.",
       "riotLink": "Riot — Set 17 genel bakış",
       "mobalyticsLink": "Mobalytics — yeni set merkezi"
     }
@@ -28,7 +28,8 @@
     "traitHighlights": "Özellik öne çıkanlar",
     "boardPreview": "Tahta önizleme",
     "notes": "Notlar",
-    "notFound": "Kadro bulunamadı"
+    "notFound": "Kadro bulunamadı",
+    "metaTitle": "{compName} · TFT Tactician · Set 17"
   },
   "gallery": {
     "search": "Ara",

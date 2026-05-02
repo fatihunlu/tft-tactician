@@ -28,7 +28,8 @@
     "traitHighlights": "Trait highlights",
     "boardPreview": "Board preview",
     "notes": "Notes",
-    "notFound": "Comp not found"
+    "notFound": "Comp not found",
+    "metaTitle": "{compName} · TFT Tactician · Set 17"
   },
   "gallery": {
     "search": "Search",
