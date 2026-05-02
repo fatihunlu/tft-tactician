@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import type { CompUnit } from "@/types/comp";
 import { ChampionAvatar } from "./ChampionAvatar";
 import { ItemIcon } from "./ItemIcon";
@@ -12,7 +13,14 @@ const roleBadge: Record<NonNullable<CompUnit["role"]>, string> = {
   flex: "bg-neutral-500/25 text-neutral-100",
 };
 
-export function UnitRow({ unit }: { unit: CompUnit }) {
+export function UnitRow({
+  unit,
+  championSlug,
+}: {
+  unit: CompUnit;
+  /** When set, champion name links to `/champions/[slug]`. */
+  championSlug?: string;
+}) {
   const t = useTranslations("unit");
   const role = unit.role;
 
@@ -28,7 +36,16 @@ export function UnitRow({ unit }: { unit: CompUnit }) {
       <ChampionAvatar champion={unit.champion} size={40} />
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="font-medium text-red-50">{unit.champion}</span>
+          {championSlug ? (
+            <Link
+              href={`/champions/${championSlug}`}
+              className="font-medium text-red-50 underline-offset-2 hover:text-white hover:underline"
+            >
+              {unit.champion}
+            </Link>
+          ) : (
+            <span className="font-medium text-red-50">{unit.champion}</span>
+          )}
           {unit.cost ? (
             <span className="text-xs text-red-200/50">{t("cost", { cost: unit.cost })}</span>
           ) : null}

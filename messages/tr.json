@@ -106,5 +106,16 @@
     "title": "Sayfa bulunamadı",
     "description": "Bu kadro veya URL mevcut değil.",
     "back": "Ana sayfaya dön"
+  },
+  "champion": {
+    "backLink": "← Tüm kadrolar",
+    "breadcrumb": "Set 17 · Şampiyonlar",
+    "cost": "{cost} altın",
+    "traits": "Özellikler",
+    "ability": "Yetenek",
+    "usedInComps": "Bu kadrolarda kullanılıyor",
+    "noComps": "Henüz öne çıkan bir kadroda yer almıyor.",
+    "notFound": "Şampiyon bulunamadı",
+    "metaTitle": "{name} · TFT Tactician · Set 17"
   }
 }

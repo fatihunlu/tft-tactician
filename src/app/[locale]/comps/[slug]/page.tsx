@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { DifficultyBadge } from "@/components/DifficultyBadge";
 import { MetaBoardPreview } from "@/components/MetaBoardPreview";
 import { UnitRow } from "@/components/UnitRow";
+import { getChampionByName } from "@/lib/champions";
 import { getCompBySlug, getCompSlugs } from "@/lib/comps";
 import { t as loc } from "@/types/comp";
 import type { Comp } from "@/types/comp";
@@ -152,7 +153,11 @@ export default async function CompDetailPage({ params }: Props) {
       <section className="py-6">
         <ul className="space-y-2">
           {comp.units.map((unit) => (
-            <UnitRow key={unit.champion} unit={unit} />
+            <UnitRow
+              key={unit.champion}
+              unit={unit}
+              championSlug={getChampionByName(unit.champion)?.slug}
+            />
           ))}
         </ul>
       </section>

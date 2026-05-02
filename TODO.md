@@ -16,11 +16,11 @@ Feature and UX work for the comp guide (not devops/tooling). Check items off as 
 
 ## Champion detail page
 
-- [ ] **Route & layout** — e.g. `/champions/[slug]` with portrait, cost, traits, and short ability summary for Set 17.
-- [ ] **Entry points** — tap a unit on comp detail (and optional card on home) to open the champion page.
-- [ ] **Data layer** — static champion JSON/TS for the set (or curated subset) so the page stays fast and patchable without scraping.
-- [ ] **Cross-links** — “Used in these comps” list built from `comps.ts` (inverse index by champion name).
-- [ ] **SEO basics** — title/description per champion; canonical slug matches in-game naming where possible.
+- [x] **Route & layout** — e.g. `/champions/[slug]` with portrait, cost, traits, and short ability summary for Set 17.
+- [x] **Entry points** — tap a unit on comp detail (and optional card on home) to open the champion page.
+- [x] **Data layer** — static champion JSON/TS for the set (or curated subset) so the page stays fast and patchable without scraping.
+- [x] **Cross-links** — “Used in these comps” list built from `comps.ts` (inverse index by champion name).
+- [x] **SEO basics** — title/description per champion; canonical slug matches in-game naming where possible.
 
 ## Content volume
 

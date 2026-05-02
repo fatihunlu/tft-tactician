@@ -106,5 +106,16 @@
     "title": "Page not found",
     "description": "That comp or URL does not exist.",
     "back": "Back to home"
+  },
+  "champion": {
+    "backLink": "← All comps",
+    "breadcrumb": "Set 17 · Champions",
+    "cost": "{cost}-cost",
+    "traits": "Traits",
+    "ability": "Ability",
+    "usedInComps": "Used in these comps",
+    "noComps": "No featured comps use this champion yet.",
+    "notFound": "Champion not found",
+    "metaTitle": "{name} · TFT Tactician · Set 17"
   }
 }
